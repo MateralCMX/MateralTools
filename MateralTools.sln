@@ -25,27 +25,6 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MateralTools.MDataBase", "M
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MateralTools.MLog", "MateralTools.MLog\MateralTools.MLog.csproj", "{09413A1D-9C01-4087-B4F1-F33C9C28C0D2}"
 EndProject
-Project("{E24C65DC-7377-472B-9ABA-BC803B73C61A}") = "MateralTools.MWebLib", "MateralTools.MWebLib\", "{D867DAA3-2032-4817-BA6E-283CFFA81E40}"
-	ProjectSection(WebsiteProperties) = preProject
-		TargetFrameworkMoniker = ".NETFramework,Version%3Dv4.0"
-		Debug.AspNetCompiler.VirtualPath = "/localhost_55034"
-		Debug.AspNetCompiler.PhysicalPath = "MateralTools.MWebLib\"
-		Debug.AspNetCompiler.TargetPath = "PrecompiledWeb\localhost_55034\"
-		Debug.AspNetCompiler.Updateable = "true"
-		Debug.AspNetCompiler.ForceOverwrite = "true"
-		Debug.AspNetCompiler.FixedNames = "false"
-		Debug.AspNetCompiler.Debug = "True"
-		Release.AspNetCompiler.VirtualPath = "/localhost_55034"
-		Release.AspNetCompiler.PhysicalPath = "MateralTools.MWebLib\"
-		Release.AspNetCompiler.TargetPath = "PrecompiledWeb\localhost_55034\"
-		Release.AspNetCompiler.Updateable = "true"
-		Release.AspNetCompiler.ForceOverwrite = "true"
-		Release.AspNetCompiler.FixedNames = "false"
-		Release.AspNetCompiler.Debug = "False"
-		VWDPort = "55034"
-		SlnRelativePath = "MateralTools.MWebLib\"
-	EndProjectSection
-EndProject
 Project("{E24C65DC-7377-472B-9ABA-BC803B73C61A}") = "Materal.WebApp", "Materal.WebApp\", "{28D9FA53-18BF-47C9-B2DF-531B86511CA2}"
 	ProjectSection(WebsiteProperties) = preProject
 		TargetFrameworkMoniker = ".NETFramework,Version%3Dv4.0"
@@ -89,6 +68,8 @@ Project("{E24C65DC-7377-472B-9ABA-BC803B73C61A}") = "Materal.WebPC", "Materal.We
 	EndProjectSection
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Materal.WebAPI", "Materal.WebAPI\Materal.WebAPI.csproj", "{A66BB37D-2F71-404E-84A8-1E0FB1AD8493}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MateralTools.MWebLib", "MateralTools.MWebLib\MateralTools.MWebLib.csproj", "{456042AD-1631-4A89-AE30-D9EC4AD794CD}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -140,10 +121,6 @@ Global
 		{09413A1D-9C01-4087-B4F1-F33C9C28C0D2}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{09413A1D-9C01-4087-B4F1-F33C9C28C0D2}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{09413A1D-9C01-4087-B4F1-F33C9C28C0D2}.Release|Any CPU.Build.0 = Release|Any CPU
-		{D867DAA3-2032-4817-BA6E-283CFFA81E40}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{D867DAA3-2032-4817-BA6E-283CFFA81E40}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{D867DAA3-2032-4817-BA6E-283CFFA81E40}.Release|Any CPU.ActiveCfg = Debug|Any CPU
-		{D867DAA3-2032-4817-BA6E-283CFFA81E40}.Release|Any CPU.Build.0 = Debug|Any CPU
 		{28D9FA53-18BF-47C9-B2DF-531B86511CA2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{28D9FA53-18BF-47C9-B2DF-531B86511CA2}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{28D9FA53-18BF-47C9-B2DF-531B86511CA2}.Release|Any CPU.ActiveCfg = Debug|Any CPU
@@ -156,6 +133,10 @@ Global
 		{A66BB37D-2F71-404E-84A8-1E0FB1AD8493}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{A66BB37D-2F71-404E-84A8-1E0FB1AD8493}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{A66BB37D-2F71-404E-84A8-1E0FB1AD8493}.Release|Any CPU.Build.0 = Release|Any CPU
+		{456042AD-1631-4A89-AE30-D9EC4AD794CD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{456042AD-1631-4A89-AE30-D9EC4AD794CD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{456042AD-1631-4A89-AE30-D9EC4AD794CD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{456042AD-1631-4A89-AE30-D9EC4AD794CD}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
