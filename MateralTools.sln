@@ -43,6 +43,7 @@ Project("{E24C65DC-7377-472B-9ABA-BC803B73C61A}") = "MateralTools.MWebLib", "Mat
 		Release.AspNetCompiler.FixedNames = "false"
 		Release.AspNetCompiler.Debug = "False"
 		VWDPort = "55034"
+		SlnRelativePath = "MateralTools.MWebLib\"
 	EndProjectSection
 EndProject
 Project("{E24C65DC-7377-472B-9ABA-BC803B73C61A}") = "Materal.WebApp", "Materal.WebApp\", "{28D9FA53-18BF-47C9-B2DF-531B86511CA2}"
@@ -63,6 +64,7 @@ Project("{E24C65DC-7377-472B-9ABA-BC803B73C61A}") = "Materal.WebApp", "Materal.W
 		Release.AspNetCompiler.FixedNames = "false"
 		Release.AspNetCompiler.Debug = "False"
 		VWDPort = "55036"
+		SlnRelativePath = "Materal.WebApp\"
 	EndProjectSection
 EndProject
 Project("{E24C65DC-7377-472B-9ABA-BC803B73C61A}") = "Materal.WebPC", "Materal.WebPC\", "{40D3F4D5-8BE9-4917-9DBA-1950BA783BFD}"
@@ -83,6 +85,7 @@ Project("{E24C65DC-7377-472B-9ABA-BC803B73C61A}") = "Materal.WebPC", "Materal.We
 		Release.AspNetCompiler.FixedNames = "false"
 		Release.AspNetCompiler.Debug = "False"
 		VWDPort = "55039"
+		SlnRelativePath = "Materal.WebPC\"
 	EndProjectSection
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Materal.WebAPI", "Materal.WebAPI\Materal.WebAPI.csproj", "{A66BB37D-2F71-404E-84A8-1E0FB1AD8493}"
