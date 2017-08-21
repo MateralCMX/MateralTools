@@ -27,7 +27,28 @@ namespace MateralTools.MEnum
                     name = attr.ShowName;
                 }
             }
+            else
+            {
+                throw new ApplicationException("该对象不包含EnumShowNameAttribute");
+            }
             return name;
+        }
+        /// <summary>
+        /// 通过名称获得枚举对象
+        /// </summary>
+        /// <typeparam name="T">枚举类型</typeparam>
+        /// <param name="enumName">枚举名称</param>
+        /// <returns></returns>
+        public static T GetEnumByName<T>(string enumName)
+        {
+            if (typeof(T).IsEnum)
+            {
+                return (T)Enum.Parse(typeof(T), enumName);
+            }
+            else
+            {
+                throw new ApplicationException("类型T不是枚举类型");
+            }
         }
         /// <summary>
         /// 获取枚举总数

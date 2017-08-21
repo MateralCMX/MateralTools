@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
-VisualStudioVersion = 15.0.26430.15
+VisualStudioVersion = 15.0.26403.3
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MateralTools.Base", "MateralTools.Base\MateralTools.Base.csproj", "{283A70B6-C653-4886-82F1-D9174D1608B0}"
 EndProject
@@ -71,6 +71,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Materal.WebAPI", "Materal.W
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MateralTools.MWebLib", "MateralTools.MWebLib\MateralTools.MWebLib.csproj", "{456042AD-1631-4A89-AE30-D9EC4AD794CD}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MateralTools.MImage", "MateralTools.MImage\MateralTools.MImage.csproj", "{4850E1C0-5A3A-4020-B8B9-AB1EAA4A6E4E}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MateralTools.MImageTests", "MateralTools.MImageTests\MateralTools.MImageTests.csproj", "{53E26EB3-B626-494B-A7C0-FC92EBFE0A6B}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -137,6 +141,14 @@ Global
 		{456042AD-1631-4A89-AE30-D9EC4AD794CD}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{456042AD-1631-4A89-AE30-D9EC4AD794CD}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{456042AD-1631-4A89-AE30-D9EC4AD794CD}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4850E1C0-5A3A-4020-B8B9-AB1EAA4A6E4E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4850E1C0-5A3A-4020-B8B9-AB1EAA4A6E4E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4850E1C0-5A3A-4020-B8B9-AB1EAA4A6E4E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4850E1C0-5A3A-4020-B8B9-AB1EAA4A6E4E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{53E26EB3-B626-494B-A7C0-FC92EBFE0A6B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{53E26EB3-B626-494B-A7C0-FC92EBFE0A6B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{53E26EB3-B626-494B-A7C0-FC92EBFE0A6B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{53E26EB3-B626-494B-A7C0-FC92EBFE0A6B}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
