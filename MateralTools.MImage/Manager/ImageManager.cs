@@ -83,8 +83,17 @@ namespace MateralTools.MImage
         /// <returns>添加过水印的图片</returns>
         public static Bitmap AddWaterMark(string imgPath, Bitmap waterMarkImg, Point waterPosition)
         {
-            Bitmap img = new Bitmap(imgPath);
-            return AddWaterMark(img, waterMarkImg, waterPosition);
+            Image img = Image.FromFile(imgPath);
+            Bitmap bitImg;
+            if (IsPixelFormatIndexed(img.PixelFormat))
+            {
+                bitImg = PixeIFormatConvertBitMap(img);
+            }
+            else
+            {
+                bitImg = (Bitmap)img;
+            }
+            return AddWaterMark(bitImg, waterMarkImg, waterPosition);
         }
         /// <summary>
         /// 根据水印文字获得水印图片
