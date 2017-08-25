@@ -4,14 +4,13 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{67DE6314-CEC1-4F83-88FB-41BBBFB9D3BD}</ProjectGuid>
+    <ProjectGuid>{A52D20B6-F47E-43CA-AE7B-1A4B818DA17D}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>MateralTools.MEnum</RootNamespace>
-    <AssemblyName>MateralTools.MEnum</AssemblyName>
-    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <RootNamespace>MateralTools.MDirtyWord</RootNamespace>
+    <AssemblyName>MateralTools.MDirtyWord</AssemblyName>
+    <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
-    <TargetFrameworkProfile />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -41,18 +40,13 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Model\CacheSaveTimeType.cs" />
-    <Compile Include="Model\EnumShowNameAttribute.cs" />
-    <Compile Include="Manager\EnumManager.cs" />
-    <Compile Include="Model\EnumModel.cs" />
-    <Compile Include="Model\EnumsModel.cs" />
+    <Compile Include="Interface\IDirtWordManager.cs" />
+    <Compile Include="Manager\DirtyWordManager.cs" />
+    <Compile Include="Model\DirtyWordModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\MateralTools.Base\MateralTools.Base.csproj">
-      <Project>{283a70b6-c653-4886-82f1-d9174d1608b0}</Project>
-      <Name>MateralTools.Base</Name>
-    </ProjectReference>
+    <Folder Include="Data\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

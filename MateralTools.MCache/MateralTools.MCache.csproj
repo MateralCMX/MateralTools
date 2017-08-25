@@ -4,14 +4,13 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{67DE6314-CEC1-4F83-88FB-41BBBFB9D3BD}</ProjectGuid>
+    <ProjectGuid>{2280029C-AD42-41A1-A50A-88E76DD164EC}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>MateralTools.MEnum</RootNamespace>
-    <AssemblyName>MateralTools.MEnum</AssemblyName>
-    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <RootNamespace>MateralTools.MCache</RootNamespace>
+    <AssemblyName>MateralTools.MCache</AssemblyName>
+    <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
-    <TargetFrameworkProfile />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -33,6 +32,7 @@
   <ItemGroup>
     <Reference Include="System" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Runtime.Caching" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -41,17 +41,17 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Model\CacheSaveTimeType.cs" />
-    <Compile Include="Model\EnumShowNameAttribute.cs" />
-    <Compile Include="Manager\EnumManager.cs" />
-    <Compile Include="Model\EnumModel.cs" />
-    <Compile Include="Model\EnumsModel.cs" />
+    <Compile Include="Manager\CacheManager.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\MateralTools.Base\MateralTools.Base.csproj">
-      <Project>{283a70b6-c653-4886-82f1-d9174d1608b0}</Project>
-      <Name>MateralTools.Base</Name>
+    <Folder Include="Data\" />
+    <Folder Include="Model\" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\MateralTools.MEnum\MateralTools.MEnum.csproj">
+      <Project>{67de6314-cec1-4f83-88fb-41bbbfb9d3bd}</Project>
+      <Name>MateralTools.MEnum</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
