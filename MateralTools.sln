@@ -75,8 +75,6 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MateralTools.MImage", "Mate
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MateralTools.MImageTests", "MateralTools.MImageTests\MateralTools.MImageTests.csproj", "{53E26EB3-B626-494B-A7C0-FC92EBFE0A6B}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MateralTools.MDirtyWord", "MateralTools.MDirtyWord\MateralTools.MDirtyWord.csproj", "{A52D20B6-F47E-43CA-AE7B-1A4B818DA17D}"
-EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MateralTools.MCache", "MateralTools.MCache\MateralTools.MCache.csproj", "{2280029C-AD42-41A1-A50A-88E76DD164EC}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MateralTools.MKeyWord", "MateralTools.MKeyWord\MateralTools.MKeyWord.csproj", "{25F98660-33C9-4A81-8C13-B984BFC44267}"
@@ -157,10 +155,6 @@ Global
 		{53E26EB3-B626-494B-A7C0-FC92EBFE0A6B}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{53E26EB3-B626-494B-A7C0-FC92EBFE0A6B}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{53E26EB3-B626-494B-A7C0-FC92EBFE0A6B}.Release|Any CPU.Build.0 = Release|Any CPU
-		{A52D20B6-F47E-43CA-AE7B-1A4B818DA17D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{A52D20B6-F47E-43CA-AE7B-1A4B818DA17D}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{A52D20B6-F47E-43CA-AE7B-1A4B818DA17D}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{A52D20B6-F47E-43CA-AE7B-1A4B818DA17D}.Release|Any CPU.Build.0 = Release|Any CPU
 		{2280029C-AD42-41A1-A50A-88E76DD164EC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{2280029C-AD42-41A1-A50A-88E76DD164EC}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{2280029C-AD42-41A1-A50A-88E76DD164EC}.Release|Any CPU.ActiveCfg = Release|Any CPU
