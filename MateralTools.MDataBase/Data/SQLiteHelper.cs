@@ -262,6 +262,13 @@ namespace MateralTools.MDataBase
 
             return result;
         }
+        /// <summary>
+        /// 执行非查询语句
+        /// </summary>
+        /// <param name="cn">链接对象</param>
+        /// <param name="commandText">命令文本</param>
+        /// <param name="paramList">参数组</param>
+        /// <returns></returns>
         public static int ExecuteNonQuery(SQLiteConnection cn, string commandText, params object[] paramList)
         {
 
@@ -360,6 +367,7 @@ namespace MateralTools.MDataBase
         /// <summary>
         /// Parses parameter names from SQL Statement, assigns values from object array ,   /// and returns fully populated ParameterCollection.
         /// </summary>
+        /// <param name="cmd">命令对象</param>
         /// <param name="commandText">Sql Statement with "@param" style embedded parameters</param>
         /// <param name="paramList">object[] array of parameter values</param>
         /// <returns>SQLiteParameterCollection</returns>

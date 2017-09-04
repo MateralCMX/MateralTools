@@ -46,10 +46,18 @@ namespace MateralTools.MEnum
     /// </summary>
     public class EnumsModel : CollectionBase
     {
+        /// <summary>
+        /// 添加
+        /// </summary>
+        /// <param name="enumM"></param>
         public void Add(EnumModel enumM)
         {
             List.Add(enumM);
         }
+        /// <summary>
+        /// 删除
+        /// </summary>
+        /// <param name="enumM"></param>
         public void Remove(EnumModel enumM)
         {
             List.Remove(enumM);

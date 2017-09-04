@@ -8,6 +8,9 @@ using ThoughtWorks.QRCode.Codec;
 
 namespace MateralTools.MEncryption
 {
+    /// <summary>
+    /// 加密管理类
+    /// </summary>
     public class EncryptionManager
     {
         #region MD5

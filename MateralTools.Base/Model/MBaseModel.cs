@@ -5,6 +5,9 @@ using System.Runtime.Serialization.Formatters.Binary;
 
 namespace MateralTools.Base
 {
+    /// <summary>
+    /// 初始类型
+    /// </summary>
     [Serializable]
     public class MBaseModel : ICloneable
     {

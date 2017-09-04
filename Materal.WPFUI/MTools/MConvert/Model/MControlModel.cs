@@ -9,6 +9,9 @@ using System.Threading.Tasks;
 
 namespace Materal.WPFUI.MTools.MConvert
 {
+    /// <summary>
+    /// 转换模型
+    /// </summary>
     public class MControlModel
     {
         /// <summary>

@@ -22,6 +22,9 @@ namespace Materal.WPFUI
     public partial class MainWindow : Window
     {
         #region 构造函数
+        /// <summary>
+        /// 构造函数
+        /// </summary>
         public MainWindow()
         {
             InitializeComponent();

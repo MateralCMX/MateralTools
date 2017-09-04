@@ -6,6 +6,9 @@ using System.Threading.Tasks;
 
 namespace Materal.WPFUI
 {
+    /// <summary>
+    /// 自定义空间属性
+    /// </summary>
     public class CustomControlAttribute : Attribute
     {
         /// <summary>

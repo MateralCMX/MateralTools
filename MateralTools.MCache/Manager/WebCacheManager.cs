@@ -9,6 +9,9 @@ using System.Web.Caching;
 
 namespace MateralTools.MCache
 {
+    /// <summary>
+    /// Web缓存管理类
+    /// </summary>
     public class WebCacheManager
     {
 

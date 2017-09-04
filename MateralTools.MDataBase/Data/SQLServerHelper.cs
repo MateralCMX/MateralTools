@@ -113,7 +113,6 @@ namespace MateralTools.MDataBase
             {
                 throw new ArgumentException("参数值个数与参数不匹配.");
             }
-
             // 给参数赋值 
             for (int i = 0, j = commandParameters.Length; i < j; i++)
             {
@@ -268,7 +267,7 @@ namespace MateralTools.MDataBase
         /// 示例:  
         ///  int result = ExecuteNonQuery(connString, "PublishOrders", 24, 36); 
         /// </remarks> 
-        /// <param name="connectionString">一个有效的数据库连接字符串/param> 
+        /// <param name="connectionString">一个有效的数据库连接字符串</param> 
         /// <param name="spName">存储过程名称</param> 
         /// <param name="parameterValues">分配到存储过程输入参数的对象数组</param> 
         /// <returns>返回受影响的行数</returns> 
@@ -386,7 +385,7 @@ namespace MateralTools.MDataBase
         /// <param name="transaction">一个有效的数据库连接对象</param> 
         /// <param name="commandType">命令类型(存储过程,命令文本或其它.)</param> 
         /// <param name="commandText">存储过程名称或T-SQL语句</param> 
-        /// <returns>返回影响的行数/returns> 
+        /// <returns>返回影响的行数</returns> 
         public static int ExecuteNonQuery(SqlTransaction transaction, CommandType commandType, string commandText)
         {
             return ExecuteNonQuery(transaction, commandType, commandText, (SqlParameter[])null);

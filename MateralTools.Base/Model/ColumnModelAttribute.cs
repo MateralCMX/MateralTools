@@ -11,7 +11,7 @@ namespace MateralTools.Base
         /// 构造函数
         /// </summary>
         /// <param name="ColumnName">列名</param>
-        /// <param name="ColumnName">数据类型</param>
+        /// <param name="dbType">数据类型</param>
         /// <param name="IsAutoNumber">是否为自动编号</param>
         public ColumnModelAttribute(string ColumnName, string dbType, bool IsAutoNumber = false)
         {

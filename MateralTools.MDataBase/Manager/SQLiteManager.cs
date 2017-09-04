@@ -11,6 +11,9 @@ using System.Threading.Tasks;
 
 namespace MateralTools.MDataBase
 {
+    /// <summary>
+    /// SQLite管理类
+    /// </summary>
     public class SQLiteManager
     {
         /// <summary>
@@ -52,10 +55,10 @@ namespace MateralTools.MDataBase
         /// 查询表
         /// </summary>
         /// <typeparam name="T">查询的类型</typeparam>
-        /// <param name="sql">查询sql</param>
-        /// <param name="cmt">命令类型</param>
-        /// <param name="paras">参数</param>
+        /// <param name="whereStr">条件文本</param>
+        /// <param name="model">查询模型</param>
         /// <param name="IsAttribut">拥有Atribut</param>
+        /// <param name="ConStrName">链接字符串</param>
         /// <returns>查询结果</returns>
         private static List<List<T>> Selects<T>(string whereStr = null, T model = default(T), bool IsAttribut = false, string ConStrName = null)
         {
@@ -67,10 +70,10 @@ namespace MateralTools.MDataBase
         /// 查询
         /// </summary>
         /// <typeparam name="T">查询的类型</typeparam>
-        /// <param name="sql">查询sql</param>
-        /// <param name="cmt">命令类型</param>
-        /// <param name="paras">参数</param>
+        /// <param name="whereStr">条件文本</param>
+        /// <param name="model">查询模型</param>
         /// <param name="IsAttribut">拥有Atribut</param>
+        /// <param name="ConStrName">链接字符串</param>
         /// <returns>查询结果</returns>
         public static List<T> Select<T>(string whereStr = null, T model = default(T), bool IsAttribut = false, string ConStrName = null)
         {
@@ -81,6 +84,7 @@ namespace MateralTools.MDataBase
         /// </summary>
         /// <typeparam name="T">要添加的类型</typeparam>
         /// <param name="model">要添加的实体</param>
+        /// <param name="ConStrName">链接字符串</param>
         /// <returns>影响的行数</returns>
         public static int Insert<T>(T model, string ConStrName = null)
         {
@@ -92,6 +96,7 @@ namespace MateralTools.MDataBase
         /// </summary>
         /// <typeparam name="T">要修改的类型</typeparam>
         /// <param name="model">要修改的实体</param>
+        /// <param name="ConStrName">链接字符串</param>
         /// <returns>影响的行数</returns>
         public static int Update<T>(T model, string ConStrName = null)
         {
@@ -103,6 +108,7 @@ namespace MateralTools.MDataBase
         /// </summary>
         /// <typeparam name="T">要删除的类型</typeparam>
         /// <param name="model">要删除的实体</param>
+        /// <param name="ConStrName">链接字符串</param>
         /// <returns>影响的行数</returns>
         public static int Delete<T>(T model, string ConStrName = null)
         {
@@ -114,6 +120,7 @@ namespace MateralTools.MDataBase
         /// </summary>
         /// <param name="sql">SQL语句</param>
         /// <param name="paras">参数</param>
+        /// <param name="ConStrName">链接字符串</param>
         /// <returns>影响的行数</returns>
         public static int ExecuteNonQuery(string sql, SQLiteParameter[] paras, string ConStrName = null)
         {

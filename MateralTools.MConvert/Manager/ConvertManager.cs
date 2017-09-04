@@ -14,6 +14,9 @@ using System.Threading.Tasks;
 
 namespace MateralTools.MConvert
 {
+    /// <summary>
+    /// 转换管理类
+    /// </summary>
     public class ConvertManager
     {
         #region 列表、动态列表
@@ -256,7 +259,6 @@ namespace MateralTools.MConvert
         /// Json转换为对象
         /// </summary>
         /// <param name="jsonStr">Json字符串</param>
-        /// <param name="model">要赋予的对象</param>
         public static T JsonToModel<T>(string jsonStr)
         {
             object model = null;
@@ -286,7 +288,6 @@ namespace MateralTools.MConvert
         /// Json转换为对象
         /// </summary>
         /// <param name="jsonStr">Json字符串</param>
-        /// <param name="model">要赋予的对象</param>
         public static List<T> JsonToList<T>(string jsonStr)
         {
             List<T> listM = new List<T>();

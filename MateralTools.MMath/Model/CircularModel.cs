@@ -8,6 +8,9 @@ using System.Windows;
 
 namespace MateralTools.MMath
 {
+    /// <summary>
+    /// 圆模型
+    /// </summary>
     public class CircularModel
     {
         /// <summary>
@@ -23,7 +26,8 @@ namespace MateralTools.MMath
         /// <summary>
         /// 构造方法
         /// </summary>
-        /// <param name="P">圆心点</param>
+        /// <param name="X">圆心点X坐标</param>
+        /// <param name="Y">圆心点Y坐标</param>
         /// <param name="R">半径</param>
         public CircularModel(double X, double Y, double R)
         {

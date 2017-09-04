@@ -13,9 +13,18 @@ namespace MateralTools.MDataBase
     /// </summary>
     public class TSQLModel
     {
+        /// <summary>
+        /// SQL语句
+        /// </summary>
         public string SQLStr { get; set; }
+        /// <summary>
+        /// 参数组
+        /// </summary>
         public List<TSQLParameter> SQLParameters { get; set; }
-
+        /// <summary>
+        /// 获得SQLServer参数组
+        /// </summary>
+        /// <returns></returns>
         public SqlParameter[] GetMSSQLParameter()
         {
             List<SqlParameter> mssqlParameter = new List<SqlParameter>();
@@ -25,7 +34,11 @@ namespace MateralTools.MDataBase
             }
             return mssqlParameter.ToArray();
         }
-
+        /// <summary>
+        /// 获得SQL参数组
+        /// </summary>
+        /// <typeparam name="T">参数对象</typeparam>
+        /// <returns></returns>
         public T[] GetSQLParameters<T>()
         {
             List<T> listM = new List<T>();
@@ -55,8 +68,19 @@ namespace MateralTools.MDataBase
     /// </summary>
     public class TSQLParameter
     {
+        /// <summary>
+        /// 参数名称
+        /// </summary>
         public string ParameterName { get; set; }
+        /// <summary>
+        /// 值
+        /// </summary>
         public object Value { get; set; }
+        /// <summary>
+        /// 构造方法
+        /// </summary>
+        /// <param name="parameterName">名称</param>
+        /// <param name="value">值</param>
         public TSQLParameter(string parameterName, object value)
         {
             this.ParameterName = parameterName;

@@ -8,11 +8,12 @@
     <OutputType>WinExe</OutputType>
     <RootNamespace>Materal.WPFUI</RootNamespace>
     <AssemblyName>Materal.WPFUI</AssemblyName>
-    <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <ProjectTypeGuids>{60dc8134-eba5-43b8-bcc9-bb4bc16c2548};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
     <WarningLevel>4</WarningLevel>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+    <TargetFrameworkProfile />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <PlatformTarget>AnyCPU</PlatformTarget>
@@ -32,6 +33,8 @@
     <DefineConstants>TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
+    <DocumentationFile>
+    </DocumentationFile>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
@@ -127,13 +130,61 @@
       <Project>{283a70b6-c653-4886-82f1-d9174d1608b0}</Project>
       <Name>MateralTools.Base</Name>
     </ProjectReference>
+    <ProjectReference Include="..\MateralTools.MCache\MateralTools.MCache.csproj">
+      <Project>{2280029c-ad42-41a1-a50a-88e76dd164ec}</Project>
+      <Name>MateralTools.MCache</Name>
+    </ProjectReference>
     <ProjectReference Include="..\MateralTools.MConvert\MateralTools.MConvert.csproj">
       <Project>{6820dfb5-43af-46f6-ba0e-0a018a1abd6b}</Project>
       <Name>MateralTools.MConvert</Name>
     </ProjectReference>
+    <ProjectReference Include="..\MateralTools.MDataBase\MateralTools.MDataBase.csproj">
+      <Project>{0f653b55-2afb-4070-baad-6bf2abb0d1ce}</Project>
+      <Name>MateralTools.MDataBase</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\MateralTools.MEncryption\MateralTools.MEncryption.csproj">
+      <Project>{28e4de1f-d4ca-4035-9d94-6d3937678207}</Project>
+      <Name>MateralTools.MEncryption</Name>
+    </ProjectReference>
     <ProjectReference Include="..\MateralTools.MEnum\MateralTools.MEnum.csproj">
       <Project>{67DE6314-CEC1-4F83-88FB-41BBBFB9D3BD}</Project>
       <Name>MateralTools.MEnum</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\MateralTools.MFormat\MateralTools.MFormat.csproj">
+      <Project>{a31f9444-2005-40c5-b161-395e2684a651}</Project>
+      <Name>MateralTools.MFormat</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\MateralTools.MHttpWeb\MateralTools.MHttpWeb.csproj">
+      <Project>{0f3e3189-5442-4b98-a718-4c1f350e1e32}</Project>
+      <Name>MateralTools.MHttpWeb</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\MateralTools.MImageTests\MateralTools.MImageTests.csproj">
+      <Project>{53e26eb3-b626-494b-a7c0-fc92ebfe0a6b}</Project>
+      <Name>MateralTools.MImageTests</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\MateralTools.MImage\MateralTools.MImage.csproj">
+      <Project>{4850e1c0-5a3a-4020-b8b9-ab1eaa4a6e4e}</Project>
+      <Name>MateralTools.MImage</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\MateralTools.MKeyWordTests\MateralTools.MKeyWordTests.csproj">
+      <Project>{88b0f491-327a-405e-8881-c5c35a07028b}</Project>
+      <Name>MateralTools.MKeyWordTests</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\MateralTools.MKeyWord\MateralTools.MKeyWord.csproj">
+      <Project>{25f98660-33c9-4a81-8c13-b984bfc44267}</Project>
+      <Name>MateralTools.MKeyWord</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\MateralTools.MLog\MateralTools.MLog.csproj">
+      <Project>{09413a1d-9c01-4087-b4f1-f33c9c28c0d2}</Project>
+      <Name>MateralTools.MLog</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\MateralTools.MMath\MateralTools.MMath.csproj">
+      <Project>{318b8f9f-e19d-4991-97a1-ddcfdc0576be}</Project>
+      <Name>MateralTools.MMath</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\MateralTools.MVerify\MateralTools.MVerify.csproj">
+      <Project>{bd513fbf-6225-4193-8dd0-f194d098d0d2}</Project>
+      <Name>MateralTools.MVerify</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

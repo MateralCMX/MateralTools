@@ -7,6 +7,9 @@ using System.Threading.Tasks;
 
 namespace Materal.WPFUI.MTools.MConvert
 {
+    /// <summary>
+    /// 数据表到List转换模型
+    /// </summary>
     public class DataTableToListControlModel : MControlModel
     {
         /// <summary>

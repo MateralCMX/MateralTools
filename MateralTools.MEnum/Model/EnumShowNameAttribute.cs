@@ -6,6 +6,9 @@ using System.Threading.Tasks;
 
 namespace MateralTools.MEnum
 {
+    /// <summary>
+    /// 枚举显示名称属性
+    /// </summary>
     public sealed class EnumShowNameAttribute : Attribute
     {
         /// <summary>

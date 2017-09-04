@@ -8,6 +8,9 @@ using System.Web;
 
 namespace MateralTools.MVerify
 {
+    /// <summary>
+    /// 验证管理类
+    /// </summary>
     public class VerifyManager
     {
         #region 方法

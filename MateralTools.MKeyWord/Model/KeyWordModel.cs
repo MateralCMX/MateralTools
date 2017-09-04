@@ -6,6 +6,9 @@ using System.Threading.Tasks;
 
 namespace MateralTools.MKeyWord
 {
+    /// <summary>
+    /// 关键字模型
+    /// </summary>
     public class KeyWordModel
     {
         /// <summary>

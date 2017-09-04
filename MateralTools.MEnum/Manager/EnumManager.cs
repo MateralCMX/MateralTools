@@ -7,6 +7,9 @@ using System.Threading.Tasks;
 
 namespace MateralTools.MEnum
 {
+    /// <summary>
+    /// 枚举管理类
+    /// </summary>
     public class EnumManager
     {
         /// <summary>

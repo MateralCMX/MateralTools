@@ -6,6 +6,9 @@ using System.Threading.Tasks;
 
 namespace MateralTools.MLog.Model
 {
+    /// <summary>
+    /// 日志模型
+    /// </summary>
     public class LogModel
     {
         /// <summary>

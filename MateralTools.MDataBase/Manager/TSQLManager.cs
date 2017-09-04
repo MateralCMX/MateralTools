@@ -10,6 +10,9 @@ using System.Threading.Tasks;
 
 namespace MateralTools.MDataBase
 {
+    /// <summary>
+    /// T-SQL管理类
+    /// </summary>
     public class TSQLManager
     {
         /// <summary>
@@ -17,7 +20,7 @@ namespace MateralTools.MDataBase
         /// </summary>
         /// <typeparam name="T">要查询的类型</typeparam>
         /// <param name="whereStr">查询条件</param>
-        /// <param name="listParameter">参数列表</param>
+        /// <param name="model">查询对象</param>
         /// <returns>T-SQL对象</returns>
         public static TSQLModel SelectTSQL<T>(string whereStr = null, T model = default(T))
         {

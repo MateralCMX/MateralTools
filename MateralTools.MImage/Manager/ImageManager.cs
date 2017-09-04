@@ -8,6 +8,9 @@ using System.Threading.Tasks;
 
 namespace MateralTools.MImage
 {
+    /// <summary>
+    /// 图片管理类
+    /// </summary>
     public class ImageManager
     {
         /// <summary>
@@ -99,7 +102,6 @@ namespace MateralTools.MImage
         /// 根据水印文字获得水印图片
         /// </summary>
         /// <param name="waterMarkStr">水印文字</param>
-        /// <param name="waterPosition">水印图片位置</param>
         /// <param name="waterSize">水印图片大小</param>
         /// <returns>水印图片</returns>
         public static Bitmap GetWaterMarkImageByStr(string waterMarkStr, Size waterSize)
