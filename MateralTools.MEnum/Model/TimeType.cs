@@ -14,30 +14,30 @@ namespace MateralTools.MEnum
         /// <summary>
         /// 年
         /// </summary>
-        Years,
+        Years = 0,
         /// <summary>
         /// 月
         /// </summary>
-        Months,
+        Months = 1,
         /// <summary>
         /// 日
         /// </summary>
-        Day,
+        Day = 2,
         /// <summary>
         /// 时
         /// </summary>
-        Hours,
+        Hours = 3,
         /// <summary>
         /// 分
         /// </summary>
-        Minutes,
+        Minutes = 4,
         /// <summary>
         /// 秒
         /// </summary>
-        Seconds,
+        Seconds = 5,
         /// <summary>
         /// 毫秒
         /// </summary>
-        Milliseconds
+        Milliseconds= 6
     }
 }

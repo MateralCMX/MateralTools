@@ -41,7 +41,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Model\CacheSaveTimeType.cs" />
+    <Compile Include="Model\TimeType.cs" />
     <Compile Include="Model\EnumShowNameAttribute.cs" />
     <Compile Include="Manager\EnumManager.cs" />
     <Compile Include="Model\EnumModel.cs" />

@@ -214,13 +214,16 @@ namespace MateralTools.MConvert
                         Model = ci.Invoke(new object[0]);
                         foreach (PropertyInfo prop in props)
                         {
-                            if (IsAttribut)
+                            if (dt.Columns.Contains(prop.Name))
                             {
-                                DataRowToModelHasAttributes(Model, dr, prop);
-                            }
-                            else
-                            {
-                                DataRowToModelNotAttributes(Model, dr, prop);
+                                if (IsAttribut)
+                                {
+                                    DataRowToModelHasAttributes(Model, dr, prop);
+                                }
+                                else
+                                {
+                                    DataRowToModelNotAttributes(Model, dr, prop);
+                                }
                             }
                         }
                         listMs.Add((T)Model);

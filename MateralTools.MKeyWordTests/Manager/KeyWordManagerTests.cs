@@ -108,7 +108,6 @@ namespace MateralTools.MKeyWord.Manager.Tests
                 @"插阿姨的洞洞舔女朋友的下身",
                 @"驶你爸",
                 @"轮奸做爱高潮录象",
-                @"测试",
                 @"赛你老母",
                 @"內射",
                 @"李岚清",
@@ -10629,7 +10628,6 @@ namespace MateralTools.MKeyWord.Manager.Tests
                 @"禽獸",
                 @"明慧网",
                 @"jiejie",
-                @"的",
                 @"嫩穴",
                 @"床上激情自拍图",
                 @"6。4",
@@ -14312,7 +14310,6 @@ namespace MateralTools.MKeyWord.Manager.Tests
                 @"免费淫奸女Ａ片段 免费在线观看",
                 @"习近平",
                 @"姐姐",
-                @"的",
                 @"嫩穴",
                 @"淫液",
                 @"操大波波",
@@ -14619,27 +14616,55 @@ namespace MateralTools.MKeyWord.Manager.Tests
                 @"下三爛",
                 @"客户服务",
                 @"免费小淫虫",
-                @"斜宝盖",};
+            };
             string str = "";
-            for (int i = 0; i < 10000; i++)
-            {
-                str += "已";
-            }
-            str += "陈明行就是斜宝盖啊，你说是不是条子。";
-            bool HsTxt = kwMa.ContainsAny(str);
-            Assert.AreEqual(HsTxt, true);
-            str = "图片";
-            HsTxt = kwMa.ContainsAny(str);
-            Assert.AreEqual(HsTxt, false);
-            str = "还是";
-            HsTxt = kwMa.ContainsAny(str);
-            Assert.AreEqual(HsTxt, false);
-            str = "习近平";
-            HsTxt = kwMa.ContainsAny(str);
-            Assert.AreEqual(HsTxt, true);
-            str = "免费成人网站";
-            HsTxt = kwMa.ContainsAny(str);
-            Assert.AreEqual(HsTxt, true);
+
+            str = @"一：简介
+为了方便您编写文章，您可以将括号部分删除后，直接当做标题使用，也可以全部删除后按照自己喜欢的结构编写 （Ps：这句话一定要删掉哦~）
+
+
+
+
+二：购买理由
+（你可以说下自己的购买需求、对比经历、最终选择理由）
+
+
+
+
+三、外观展示
+（你可以选择简单谈下商品的使用感受，当然也可以进行详细的性能测试，如手机可以测试相机、续航等等）
+
+
+
+
+四、使用感受
+（你可以选择简单谈下商品的使用感受，当然也可以进行详细的性能测试，如手机可以测试相机、续航等等）
+
+
+
+
+五、总结
+（这里你可以分几点来说说商品的优点、缺点，这样能够更快速明了地帮助到值友们）";
+            KeyWordModel[] keys = kwMa.FindAll(str);
+            //for (int i = 0; i < 10000; i++)
+            //{
+            //    str += "已";
+            //}
+            //str += "陈明行就是斜宝盖啊，你说是不是条子。";
+            //bool HsTxt = kwMa.ContainsAny(str);
+            //Assert.AreEqual(HsTxt, true);
+            //str = "图片";
+            //HsTxt = kwMa.ContainsAny(str);
+            //Assert.AreEqual(HsTxt, false);
+            //str = "还是";
+            //HsTxt = kwMa.ContainsAny(str);
+            //Assert.AreEqual(HsTxt, false);
+            //str = "习近平";
+            //HsTxt = kwMa.ContainsAny(str);
+            //Assert.AreEqual(HsTxt, true);
+            //str = "免费成人网站";
+            //HsTxt = kwMa.ContainsAny(str);
+            //Assert.AreEqual(HsTxt, true);
             stopwatch.Stop();
             double ts = stopwatch.Elapsed.TotalSeconds; //这里是输出的总运行秒数,精确到毫秒的
         }
