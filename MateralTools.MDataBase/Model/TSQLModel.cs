@@ -14,6 +14,13 @@ namespace MateralTools.MDataBase
     public class TSQLModel
     {
         /// <summary>
+        /// 构造方法
+        /// </summary>
+        public TSQLModel()
+        {
+            SQLParameters = new List<TSQLParameter>();
+        }
+        /// <summary>
         /// SQL语句
         /// </summary>
         public string SQLStr { get; set; }

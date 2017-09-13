@@ -158,6 +158,78 @@ var Materal;
             });
             return resStr;
         };
+        /**
+         * 获得时间差
+         * @param date1 时间1
+         * @param date2 时间2
+         * @param TimeType 返回类型[ms毫秒s秒m分钟H小时D天数]
+         */
+        ToolManager.GetTimeDifference = function (date1, date2, TimeType) {
+            if (TimeType === void 0) { TimeType = "s"; }
+            var timeDifference = date1.getTime() - date2.getTime();
+            switch (TimeType) {
+                case "D":
+                    timeDifference = Math.floor(timeDifference / (24 * 3600 * 1000));
+                    break;
+                case "H":
+                    timeDifference = Math.floor(timeDifference / (3600 * 1000));
+                    break;
+                case "m":
+                    timeDifference = Math.floor(timeDifference / (60 * 1000));
+                    break;
+                case "s":
+                    timeDifference = Math.floor(timeDifference / 1000);
+                    break;
+                case "ms":
+                    timeDifference = timeDifference;
+                    break;
+                default:
+            }
+            return timeDifference;
+        };
+        /**
+         * 时间字符串格式化
+         * @param DateTime 时间对象
+         * @param FormatStr 格式化字符串
+         */
+        ToolManager.DateTimeFormat = function (DateTime, FormatStr) {
+            var formatData = {
+                "M+": DateTime.getMonth() + 1,
+                "d+": DateTime.getDate(),
+                "H+": DateTime.getHours(),
+                "m+": DateTime.getMinutes(),
+                "s+": DateTime.getSeconds(),
+                "q+": Math.floor((DateTime.getMonth() + 3) / 3),
+                "S": DateTime.getMilliseconds() //毫秒 
+            };
+            if (/(y+)/.test(FormatStr)) {
+                FormatStr = FormatStr.replace(RegExp.$1, (DateTime.getFullYear() + "").substr(4 - RegExp.$1.length));
+            }
+            for (var data in formatData) {
+                if (new RegExp("(" + data + ")").test(FormatStr)) {
+                    FormatStr = FormatStr.replace(RegExp.$1, (RegExp.$1.length == 1) ? (formatData[data]) : (("00" + formatData[data]).substr(("" + formatData[data]).length)));
+                }
+            }
+            return FormatStr;
+        };
+        /**
+         * 获取Input DateTime设置值字符串
+         * @param DateTime 要设置的时间
+         */
+        ToolManager.GetInputDateTimeValueStr = function (DateTime) {
+            return ToolManager.DateTimeFormat(DateTime, "yyyy-MM-ddTHH:mm:ss");
+        };
+        /**
+         * 设置Input DateTime的值
+         * @param ID 要设置值的ID
+         * @param DateTime 要设置的时间
+         */
+        ToolManager.SetInputDateTimeValue = function (ID, DateTime) {
+            var element = DOMManager.$(ID);
+            if (!ToolManager.IsNullOrUndefined(element)) {
+                element.value = ToolManager.GetInputDateTimeValueStr(DateTime);
+            }
+        };
         return ToolManager;
     }());
     Materal.ToolManager = ToolManager;
@@ -1232,6 +1304,9 @@ var Materal;
                 case "m":
                     Value = 60 * Value;
                     break;
+                case "s":
+                    Value = Value;
+                    break;
                 default:
                     break;
             }
@@ -1271,12 +1346,14 @@ var Materal;
          */
         LocalDataManager.GetAllCookie = function () {
             var cookies = document.cookie.split(";");
-            var cookie;
+            var cookie = new Array();
             var LocalCookie = new Object();
             for (var i = 0; i < cookies.length; i++) {
-                cookie[i] = cookies[i].trim().split("=");
-                if (cookie[i] && cookie[i][0] && cookie[i][1]) {
-                    LocalCookie[cookie[i][0]] = cookie[i][1];
+                if (!ToolManager.IsNullOrUndefinedOrEmpty(cookies[i])) {
+                    cookie[i] = cookies[i].trim().split("=");
+                    if (cookie[i][0] && cookie[i][1]) {
+                        LocalCookie[cookie[i][0]] = cookie[i][1];
+                    }
                 }
             }
             return LocalCookie;
@@ -1296,15 +1373,17 @@ var Materal;
                 return JSON.parse(resM[Key]);
             }
             else {
-                return resM;
+                return null;
             }
         };
-        LocalDataManager.SetData = function (Key, Value, IsJson) {
+        LocalDataManager.SetData = function (Key, Value, IsJson, Timer, TimerType) {
+            if (Timer === void 0) { Timer = 60; }
+            if (TimerType === void 0) { TimerType = "m"; }
             if (this.IsLocalStorage()) {
                 this.SetLocalData(Key, Value, IsJson);
             }
             else {
-                this.SetCookie(Key, Value, IsJson, 30, "m");
+                this.SetCookie(Key, Value, IsJson, Timer, TimerType);
             }
         };
         /**

@@ -55,11 +55,11 @@ namespace MateralTools.MDataBase
         /// </summary>
         /// <typeparam name="T">要添加的类型</typeparam>
         /// <param name="model">要添加的实体</param>
+        /// <param name="returnInserID">返回刚刚添加的ID</param>
         /// <returns>T-SQL对象</returns>
-        public static TSQLModel InsertTSQL<T>(T model)
+        public static TSQLModel InsertTSQL<T>(T model, bool returnInserID = false)
         {
             TSQLModel tsqlM = new TSQLModel();
-            tsqlM.SQLParameters = new List<TSQLParameter>();
             Type tType = typeof(T);
             TableModelAttribute[] tableMAtts = (TableModelAttribute[])tType.GetCustomAttributes(typeof(TableModelAttribute), false);
             tsqlM.SQLStr = string.Format("Insert into {0} (", tableMAtts[0].DBTableName);
@@ -86,7 +86,11 @@ namespace MateralTools.MDataBase
             }
             int SQLLength = tsqlM.SQLStr.Length;
             int valuesLength = valuesStr.Length;
-            tsqlM.SQLStr = tsqlM.SQLStr.Remove(SQLLength - 2) + ") " + valuesStr.Remove(valuesLength - 2) + ")";
+            tsqlM.SQLStr = tsqlM.SQLStr.Remove(SQLLength - 2) + ") " + valuesStr.Remove(valuesLength - 2) + ");";
+            if (returnInserID)
+            {
+                tsqlM.SQLStr += "select @@IDENTITY;";
+            }
             return tsqlM;
         }
         /// <summary>
@@ -98,7 +102,6 @@ namespace MateralTools.MDataBase
         public static TSQLModel UpdateTSQL<T>(T model)
         {
             TSQLModel tsqlM = new TSQLModel();
-            tsqlM.SQLParameters = new List<TSQLParameter>();
             Type tType = typeof(T);
             TableModelAttribute[] tableMAtts = (TableModelAttribute[])tType.GetCustomAttributes(typeof(TableModelAttribute), false);
             tsqlM.SQLStr = string.Format("Update {0} set ", tableMAtts[0].DBTableName);
@@ -140,7 +143,6 @@ namespace MateralTools.MDataBase
         public static TSQLModel DeleteTSQL<T>(T model)
         {
             TSQLModel tsqlM = new TSQLModel();
-            tsqlM.SQLParameters = new List<TSQLParameter>();
             Type tType = typeof(T);
             TableModelAttribute[] tableMAtts = (TableModelAttribute[])tType.GetCustomAttributes(typeof(TableModelAttribute), false);
             tsqlM.SQLStr = string.Format("Delete from {0} where ", tableMAtts[0].DBTableName);

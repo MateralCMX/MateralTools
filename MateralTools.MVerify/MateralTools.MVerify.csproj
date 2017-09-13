@@ -45,11 +45,28 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Data\VerifyData.cs" />
+    <Compile Include="Manager\VerifyCodeManager.cs" />
+    <Compile Include="Model\VerifyCodeConfigModel.cs" />
+    <Compile Include="Model\VerifyCodeException.cs" />
+    <Compile Include="Model\VerifyCodeImageObfuscationType.cs" />
+    <Compile Include="Model\VerifyCodeTextConfigModel.cs" />
+    <Compile Include="Model\VerifyCodeTextModel.cs" />
     <Compile Include="Manager\VerifyManager.cs" />
+    <Compile Include="Model\VerifyCodeModel.cs" />
+    <Compile Include="Model\VerifyCodeType.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Content\Images\background01.jpg">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
     <Content Include="Content\正则表达式.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\MateralTools.MImage\MateralTools.MImage.csproj">
+      <Project>{4850E1C0-5A3A-4020-B8B9-AB1EAA4A6E4E}</Project>
+      <Name>MateralTools.MImage</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

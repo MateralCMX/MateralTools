@@ -153,6 +153,78 @@ namespace Materal {
             });
             return resStr;
         }
+        /**
+         * 获得时间差
+         * @param date1 时间1
+         * @param date2 时间2
+         * @param TimeType 返回类型[ms毫秒s秒m分钟H小时D天数]
+         */
+        public static GetTimeDifference(date1: Date, date2: Date, TimeType: string = "s"): number {
+            let timeDifference: number = date1.getTime() - date2.getTime();
+            switch (TimeType) {
+                case "D":
+                    timeDifference = Math.floor(timeDifference / (24 * 3600 * 1000));
+                    break;
+                case "H":
+                    timeDifference = Math.floor(timeDifference / (3600 * 1000));
+                    break;
+                case "m":
+                    timeDifference = Math.floor(timeDifference / (60 * 1000));
+                    break;
+                case "s":
+                    timeDifference = Math.floor(timeDifference / 1000);
+                    break;
+                case "ms":
+                    timeDifference = timeDifference;
+                    break;
+                default:
+            }
+            return timeDifference;
+        }
+        /**
+         * 时间字符串格式化
+         * @param DateTime 时间对象
+         * @param FormatStr 格式化字符串
+         */
+        public static DateTimeFormat(DateTime: Date, FormatStr: string): string {
+            let formatData: Object = {
+                "M+": DateTime.getMonth() + 1, //月份 
+                "d+": DateTime.getDate(), //日 
+                "H+": DateTime.getHours(), //小时 
+                "m+": DateTime.getMinutes(), //分 
+                "s+": DateTime.getSeconds(), //秒 
+                "q+": Math.floor((DateTime.getMonth() + 3) / 3), //季度 
+                "S": DateTime.getMilliseconds() //毫秒 
+            };
+            if (/(y+)/.test(FormatStr)) {
+                FormatStr = FormatStr.replace(RegExp.$1, (DateTime.getFullYear() + "").substr(4 - RegExp.$1.length));
+            }
+            for (var data in formatData) {
+                if (new RegExp("(" + data + ")").test(FormatStr))
+                {
+                    FormatStr = FormatStr.replace(RegExp.$1, (RegExp.$1.length == 1) ? (formatData[data]) : (("00" + formatData[data]).substr(("" + formatData[data]).length)));
+                }
+            }
+            return FormatStr;
+        }
+        /**
+         * 获取Input DateTime设置值字符串
+         * @param DateTime 要设置的时间
+         */
+        public static GetInputDateTimeValueStr(DateTime: Date): string {
+            return ToolManager.DateTimeFormat(DateTime, "yyyy-MM-ddTHH:mm:ss");
+        }
+        /**
+         * 设置Input DateTime的值
+         * @param ID 要设置值的ID
+         * @param DateTime 要设置的时间
+         */
+        public static SetInputDateTimeValue(ID: string, DateTime: Date): void {
+            let element: HTMLInputElement = DOMManager.$(ID) as HTMLInputElement;
+            if (!ToolManager.IsNullOrUndefined(element)) {
+                element.value = ToolManager.GetInputDateTimeValueStr(DateTime);
+            }
+        }
     }
     /**
      * 对象帮助类
@@ -1435,6 +1507,9 @@ namespace Materal {
                 case "m":
                     Value = 60 * Value;
                     break;
+                case "s":
+                    Value = Value;
+                    break;
                 default:
                     break;
             }
@@ -1471,12 +1546,14 @@ namespace Materal {
          */
         public static GetAllCookie(): Object {
             let cookies: string[] = document.cookie.split(";");
-            let cookie: Array<string[]>;
+            let cookie: Array<string[]> = new Array();
             let LocalCookie = new Object();
-            for (let i = 0; i < cookies.length; i++) {
-                cookie[i] = cookies[i].trim().split("=");
-                if (cookie[i] && cookie[i][0] && cookie[i][1]) {
-                    LocalCookie[cookie[i][0]] = cookie[i][1]
+            for (var i = 0; i < cookies.length; i++) {
+                if (!ToolManager.IsNullOrUndefinedOrEmpty(cookies[i])) {
+                    cookie[i] = cookies[i].trim().split("=");
+                    if (cookie[i][0] && cookie[i][1]) {
+                        LocalCookie[cookie[i][0]] = cookie[i][1];
+                    }
                 }
             }
             return LocalCookie;
@@ -1496,7 +1573,7 @@ namespace Materal {
                 return JSON.parse(resM[Key]);
             }
             else {
-                return resM;
+                return null;
             }
         }
         /**
@@ -1505,27 +1582,27 @@ namespace Materal {
          * @param Value 要保存的数据
          * @param IsJson 以Json格式保存
          */
-        public static SetData(Key: string, Value: Object, IsJson: boolean): void
+        public static SetData(Key: string, Value: Object, IsJson: boolean, Timer: number, TimerType: string): void
         /**
          * 设置数据
          * @param Key Key值
          * @param Value 要保存的数据
          * @param IsJson 以Json格式保存
          */
-        public static SetData(Key: string, Value: string, IsJson: boolean): void
+        public static SetData(Key: string, Value: string, IsJson: boolean, Timer: number, TimerType: string): void
         /**
          * 设置数据
          * @param Key Key值
          * @param Value 要保存的数据
          * @param IsJson 以Json格式保存
          */
-        public static SetData(Key: string, Value: string[], IsJson: boolean): void
-        public static SetData(Key, Value, IsJson): void {
+        public static SetData(Key: string, Value: string[], IsJson: boolean, Timer: number, TimerType: string): void
+        public static SetData(Key, Value, IsJson, Timer = 60, TimerType = "m"): void {
             if (this.IsLocalStorage()) {
                 this.SetLocalData(Key, Value, IsJson);
             }
             else {
-                this.SetCookie(Key, Value, IsJson, 30, "m");
+                this.SetCookie(Key, Value, IsJson, Timer, TimerType);
             }
         }
         /**

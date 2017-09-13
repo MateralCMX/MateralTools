@@ -91,7 +91,7 @@
         /// <summary>
         /// 手机号码正则表达式
         /// </summary>
-        public const string REG_PhoneNumber = @"(13|14|15|18)\d{9}";
+        public const string REG_PhoneNumber = @"(13|14|15|18|17)\d{9}";
         /// <summary>
         /// 日期正则表达式
         /// 1993/04/20
