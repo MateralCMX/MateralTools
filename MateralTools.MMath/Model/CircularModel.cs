@@ -29,7 +29,7 @@ namespace MateralTools.MMath
         /// <param name="X">圆心点X坐标</param>
         /// <param name="Y">圆心点Y坐标</param>
         /// <param name="R">半径</param>
-        public CircularModel(double X, double Y, double R)
+        public CircularModel(int X, int Y, double R)
         {
             Central = new Point(X, Y);
             Radius = R;
