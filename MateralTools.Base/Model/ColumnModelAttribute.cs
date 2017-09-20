@@ -13,7 +13,7 @@ namespace MateralTools.Base
         /// <param name="ColumnName">列名</param>
         /// <param name="dbType">数据类型</param>
         /// <param name="IsAutoNumber">是否为自动编号</param>
-        public ColumnModelAttribute(string ColumnName, string dbType, bool IsAutoNumber = false)
+        public ColumnModelAttribute(string ColumnName, string dbType = "varchar(200)", bool IsAutoNumber = false)
         {
             DBColumnName = ColumnName;
             AutoNumber = IsAutoNumber;

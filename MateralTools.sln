@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
-VisualStudioVersion = 15.0.26403.3
+VisualStudioVersion = 15.0.26730.15
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MateralTools.Base", "MateralTools.Base\MateralTools.Base.csproj", "{283A70B6-C653-4886-82F1-D9174D1608B0}"
 EndProject
@@ -82,6 +82,8 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MateralTools.MKeyWordTests", "MateralTools.MKeyWordTests\MateralTools.MKeyWordTests.csproj", "{88B0F491-327A-405E-8881-C5C35A07028B}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MateralTools.MVerifyTests", "MateralTools.MVerifyTests\MateralTools.MVerifyTests.csproj", "{A46A6FFC-6B5C-44EA-A9E4-038363B7AF5F}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MateralTools.MDataBaseTests", "MateralTools.MDataBaseTests\MateralTools.MDataBaseTests.csproj", "{C267C250-C411-4610-A3F3-F78E4252A086}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -173,8 +175,15 @@ Global
 		{A46A6FFC-6B5C-44EA-A9E4-038363B7AF5F}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{A46A6FFC-6B5C-44EA-A9E4-038363B7AF5F}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{A46A6FFC-6B5C-44EA-A9E4-038363B7AF5F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C267C250-C411-4610-A3F3-F78E4252A086}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C267C250-C411-4610-A3F3-F78E4252A086}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C267C250-C411-4610-A3F3-F78E4252A086}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C267C250-C411-4610-A3F3-F78E4252A086}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {87EA6589-6F8C-4597-88CD-593174CC8B32}
 	EndGlobalSection
 EndGlobal
