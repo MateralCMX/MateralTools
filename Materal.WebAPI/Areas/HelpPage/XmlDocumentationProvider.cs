@@ -34,23 +34,34 @@ namespace Materal.WebAPI.Areas.HelpPage
             XPathDocument xpath = new XPathDocument(documentPath);
             _documentNavigator = xpath.CreateNavigator();
         }
-
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="controllerDescriptor"></param>
+        /// <returns></returns>
         public string GetDocumentation(HttpControllerDescriptor controllerDescriptor)
         {
             XPathNavigator typeNode = GetTypeNode(controllerDescriptor.ControllerType);
             return GetTagValue(typeNode, "summary");
         }
-
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="actionDescriptor"></param>
+        /// <returns></returns>
         public virtual string GetDocumentation(HttpActionDescriptor actionDescriptor)
         {
             XPathNavigator methodNode = GetMethodNode(actionDescriptor);
             return GetTagValue(methodNode, "summary");
         }
-
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="parameterDescriptor"></param>
+        /// <returns></returns>
         public virtual string GetDocumentation(HttpParameterDescriptor parameterDescriptor)
         {
-            ReflectedHttpParameterDescriptor reflectedParameterDescriptor = parameterDescriptor as ReflectedHttpParameterDescriptor;
-            if (reflectedParameterDescriptor != null)
+            if (parameterDescriptor is ReflectedHttpParameterDescriptor reflectedParameterDescriptor)
             {
                 XPathNavigator methodNode = GetMethodNode(reflectedParameterDescriptor.ActionDescriptor);
                 if (methodNode != null)
@@ -66,13 +77,21 @@ namespace Materal.WebAPI.Areas.HelpPage
 
             return null;
         }
-
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="actionDescriptor"></param>
+        /// <returns></returns>
         public string GetResponseDocumentation(HttpActionDescriptor actionDescriptor)
         {
             XPathNavigator methodNode = GetMethodNode(actionDescriptor);
             return GetTagValue(methodNode, "returns");
         }
-
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="member"></param>
+        /// <returns></returns>
         public string GetDocumentation(MemberInfo member)
         {
             string memberName = String.Format(CultureInfo.InvariantCulture, "{0}.{1}", GetTypeName(member.DeclaringType), member.Name);
@@ -81,17 +100,24 @@ namespace Materal.WebAPI.Areas.HelpPage
             XPathNavigator propertyNode = _documentNavigator.SelectSingleNode(selectExpression);
             return GetTagValue(propertyNode, "summary");
         }
-
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="type"></param>
+        /// <returns></returns>
         public string GetDocumentation(Type type)
         {
             XPathNavigator typeNode = GetTypeNode(type);
             return GetTagValue(typeNode, "summary");
         }
-
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="actionDescriptor"></param>
+        /// <returns></returns>
         private XPathNavigator GetMethodNode(HttpActionDescriptor actionDescriptor)
         {
-            ReflectedHttpActionDescriptor reflectedActionDescriptor = actionDescriptor as ReflectedHttpActionDescriptor;
-            if (reflectedActionDescriptor != null)
+            if (actionDescriptor is ReflectedHttpActionDescriptor reflectedActionDescriptor)
             {
                 string selectExpression = String.Format(CultureInfo.InvariantCulture, MethodExpression, GetMemberName(reflectedActionDescriptor.MethodInfo));
                 return _documentNavigator.SelectSingleNode(selectExpression);

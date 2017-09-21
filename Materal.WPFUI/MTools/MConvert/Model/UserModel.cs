@@ -7,6 +7,9 @@ using System.Threading.Tasks;
 
 namespace Materal.WPFUI.MTools.MConvert
 {
+    /// <summary>
+    /// 用户模型
+    /// </summary>
     public class UserModel
     {
         /// <summary>
@@ -21,6 +24,9 @@ namespace Materal.WPFUI.MTools.MConvert
         /// 备注
         /// </summary>
         public string Remark { get; set; }
+        /// <summary>
+        /// 构造方法
+        /// </summary>
         public UserModel() { }
         /// <summary>
         /// 构造方法
@@ -40,12 +46,14 @@ namespace Materal.WPFUI.MTools.MConvert
         /// <returns>默认列表</returns>
         public static List<UserModel> GetDefualtList()
         {
-            List<UserModel> listM = new List<UserModel>();
-            listM.Add(new UserModel("Materal", 24, "0"));
-            listM.Add(new UserModel("Matreal", 25, "1"));
-            listM.Add(new UserModel("Materay", 26, "2"));
-            listM.Add(new UserModel("Materao", 27, "3"));
-            listM.Add(new UserModel("Materap", 28, "4"));
+            List<UserModel> listM = new List<UserModel>
+            {
+                new UserModel("Materal", 24, "0"),
+                new UserModel("Matreal", 25, "1"),
+                new UserModel("Materay", 26, "2"),
+                new UserModel("Materao", 27, "3"),
+                new UserModel("Materap", 28, "4")
+            };
             return listM;
         }
         /// <summary>

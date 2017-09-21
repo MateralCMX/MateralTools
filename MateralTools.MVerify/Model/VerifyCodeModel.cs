@@ -7,6 +7,9 @@ using System.Threading.Tasks;
 
 namespace MateralTools.MVerify
 {
+    /// <summary>
+    /// 验证码模型
+    /// </summary>
     public class VerifyCodeModel
     {
         /// <summary>
@@ -42,8 +45,9 @@ namespace MateralTools.MVerify
         /// </summary>
         /// <param name="img">背景图</param>
         /// <param name="fontColor">直线颜色</param>
-        /// <param name="fontColor">起点</param>
-        /// <param name="fontColor">终点</param>
+        /// <param name="p1">起点</param>
+        /// <param name="p2">终点</param>
+        /// <param name="alpha">透明度</param>
         protected void DrawLine(Bitmap img, Color fontColor,Point p1,Point p2,int alpha)
         {
             Graphics graphics = Graphics.FromImage(img);

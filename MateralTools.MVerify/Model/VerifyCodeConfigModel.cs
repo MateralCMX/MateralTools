@@ -7,6 +7,9 @@ using System.Threading.Tasks;
 
 namespace MateralTools.MVerify
 {
+    /// <summary>
+    /// 验证码配置模型
+    /// </summary>
     public class VerifyCodeConfigModel
     {
         /// <summary>
@@ -30,19 +33,23 @@ namespace MateralTools.MVerify
         /// </summary>
         public VerifyCodeConfigModel()
         {
-            ValueColors = new List<Color>();
-            ValueColors.Add(Color.MediumVioletRed);
-            ValueColors.Add(Color.MediumSlateBlue);
-            ValueColors.Add(Color.Sienna);
+            ValueColors = new List<Color>
+            {
+                Color.MediumVioletRed,
+                Color.MediumSlateBlue,
+                Color.Sienna
+            };
             //ValueColors.Add(Color.LightSeaGreen);
             //ValueColors.Add(Color.YellowGreen);
             //ValueColors.Add(Color.Navy);
             //ValueColors.Add(Color.DimGray);
             //ValueColors.Add(Color.Linen);
             //ValueColors.Add(Color.RosyBrown);
-            BackgroundColors = new List<Color>();
-            BackgroundColors.Add(Color.White);
-            BackgroundColors.Add(Color.Black);
+            BackgroundColors = new List<Color>
+            {
+                Color.White,
+                Color.Black
+            };
             ImageBackgroundPath = AppDomain.CurrentDomain.SetupInformation.ApplicationBase + @"\Content\Images";
         }
     }

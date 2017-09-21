@@ -9,8 +9,14 @@ using System.Web.Routing;
 
 namespace Materal.WebAPI
 {
+    /// <summary>
+    /// 
+    /// </summary>
     public class WebApiApplication : System.Web.HttpApplication
     {
+        /// <summary>
+        /// 
+        /// </summary>
         protected void Application_Start()
         {
             AreaRegistration.RegisterAllAreas();

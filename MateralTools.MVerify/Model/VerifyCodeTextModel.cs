@@ -8,6 +8,9 @@ using System.Threading.Tasks;
 
 namespace MateralTools.MVerify
 {
+    /// <summary>
+    /// 文本验证码模型
+    /// </summary>
     public class VerifyCodeTextModel : VerifyCodeModel
     {
         /// <summary>
@@ -21,7 +24,7 @@ namespace MateralTools.MVerify
         /// <summary>
         /// 构造方法
         /// </summary>
-        /// <param name="textLib">文本仓库</param>
+        /// <param name="config">文本验证码配置对象</param>
         public VerifyCodeTextModel(VerifyCodeTextConfigModel config)
         {
             _config = config;
@@ -32,7 +35,6 @@ namespace MateralTools.MVerify
         /// <summary>
         /// 创建文本仓库
         /// </summary>
-        /// <param name="textLib"></param>
         private void CreateTextLib()
         {
             TextLib = new List<char>();

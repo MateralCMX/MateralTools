@@ -7,6 +7,9 @@ using System.Threading.Tasks;
 
 namespace MateralTools.MVerify
 {
+    /// <summary>
+    /// 文本验证码模型
+    /// </summary>
     public class VerifyCodeTextConfigModel : VerifyCodeConfigModel
     {
         /// <summary>
@@ -43,15 +46,19 @@ namespace MateralTools.MVerify
         public VerifyCodeTextConfigModel():base()
         {
             /*文本仓库初始化*/
-            TextLibrary = new List<string>();
-            TextLibrary.Add("abcdefghijklmnopqrstuvwxyz");
-            TextLibrary.Add("ABCDEFGHIJKLMNOPQRSTUVWXYZ");
-            TextLibrary.Add("0123456789");
+            TextLibrary = new List<string>
+            {
+                "abcdefghijklmnopqrstuvwxyz",
+                "ABCDEFGHIJKLMNOPQRSTUVWXYZ",
+                "0123456789"
+            };
             ValueCount = 4;
             ConfusionCount = 20;
-            ImageObfuscationTypes = new List<VerifyCodeImageObfuscationType>();
-            ImageObfuscationTypes.Add(VerifyCodeImageObfuscationType.FalseValue);
-            ImageObfuscationTypes.Add(VerifyCodeImageObfuscationType.Stripe);
+            ImageObfuscationTypes = new List<VerifyCodeImageObfuscationType>
+            {
+                VerifyCodeImageObfuscationType.FalseValue,
+                VerifyCodeImageObfuscationType.Stripe
+            };
             AllowRandomChinese = false;
             ImageSize = new Size(200, 80);
             FontSize = 20;

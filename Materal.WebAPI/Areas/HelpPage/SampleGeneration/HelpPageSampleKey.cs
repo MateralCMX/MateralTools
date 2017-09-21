@@ -16,14 +16,9 @@ namespace Materal.WebAPI.Areas.HelpPage
         /// <param name="mediaType">The media type.</param>
         public HelpPageSampleKey(MediaTypeHeaderValue mediaType)
         {
-            if (mediaType == null)
-            {
-                throw new ArgumentNullException("mediaType");
-            }
-
             ActionName = String.Empty;
             ControllerName = String.Empty;
-            MediaType = mediaType;
+            MediaType = mediaType ?? throw new ArgumentNullException("mediaType");
             ParameterNames = new HashSet<string>(StringComparer.OrdinalIgnoreCase);
         }
 
@@ -35,12 +30,7 @@ namespace Materal.WebAPI.Areas.HelpPage
         public HelpPageSampleKey(MediaTypeHeaderValue mediaType, Type type)
             : this(mediaType)
         {
-            if (type == null)
-            {
-                throw new ArgumentNullException("type");
-            }
-
-            ParameterType = type;
+            ParameterType = type ?? throw new ArgumentNullException("type");
         }
 
         /// <summary>
@@ -56,21 +46,14 @@ namespace Materal.WebAPI.Areas.HelpPage
             {
                 throw new InvalidEnumArgumentException("sampleDirection", (int)sampleDirection, typeof(SampleDirection));
             }
-            if (controllerName == null)
-            {
-                throw new ArgumentNullException("controllerName");
-            }
-            if (actionName == null)
-            {
-                throw new ArgumentNullException("actionName");
-            }
+
             if (parameterNames == null)
             {
                 throw new ArgumentNullException("parameterNames");
             }
 
-            ControllerName = controllerName;
-            ActionName = actionName;
+            ControllerName = controllerName ?? throw new ArgumentNullException("controllerName");
+            ActionName = actionName ?? throw new ArgumentNullException("actionName");
             ParameterNames = new HashSet<string>(parameterNames, StringComparer.OrdinalIgnoreCase);
             SampleDirection = sampleDirection;
         }
@@ -86,12 +69,7 @@ namespace Materal.WebAPI.Areas.HelpPage
         public HelpPageSampleKey(MediaTypeHeaderValue mediaType, SampleDirection sampleDirection, string controllerName, string actionName, IEnumerable<string> parameterNames)
             : this(sampleDirection, controllerName, actionName, parameterNames)
         {
-            if (mediaType == null)
-            {
-                throw new ArgumentNullException("mediaType");
-            }
-
-            MediaType = mediaType;
+            MediaType = mediaType ?? throw new ArgumentNullException("mediaType");
         }
 
         /// <summary>
@@ -122,14 +100,20 @@ namespace Materal.WebAPI.Areas.HelpPage
         /// Gets the parameter names.
         /// </summary>
         public HashSet<string> ParameterNames { get; private set; }
-
+        /// <summary>
+        /// 
+        /// </summary>
         public Type ParameterType { get; private set; }
 
         /// <summary>
         /// Gets the <see cref="SampleDirection"/>.
         /// </summary>
         public SampleDirection? SampleDirection { get; private set; }
-
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="obj"></param>
+        /// <returns></returns>
         public override bool Equals(object obj)
         {
             HelpPageSampleKey otherKey = obj as HelpPageSampleKey;
@@ -145,7 +129,10 @@ namespace Materal.WebAPI.Areas.HelpPage
                 SampleDirection == otherKey.SampleDirection &&
                 ParameterNames.SetEquals(otherKey.ParameterNames);
         }
-
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <returns></returns>
         public override int GetHashCode()
         {
             int hashCode = ControllerName.ToUpperInvariant().GetHashCode() ^ ActionName.ToUpperInvariant().GetHashCode();

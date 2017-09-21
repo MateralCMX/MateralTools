@@ -9,7 +9,7 @@ using System.Drawing;
 using System.Web;
 
 namespace MateralTools.MImage.Tests
-{
+{ 
     [TestClass()]
     public class ImageManagerTests
     {

@@ -21,6 +21,9 @@ namespace Materal.WPFUI.MTools.MEnum
     public partial class MEnumControl : UserControl
     {
         #region 构造函数
+        /// <summary>
+        /// 构造函数
+        /// </summary>
         public MEnumControl()
         {
             InitializeComponent();
@@ -49,7 +52,7 @@ namespace Materal.WPFUI.MTools.MEnum
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        private void enumComboBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        private void EnumComboBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             this.enumTextBlock.Text = string.Format("当前选择项信息:\r\n实际值:{0}\r\n显示值:{1}\r\n类型:{2}", _controlM.SelectedAnimal.ToString(), _controlM.SelectedAnimalName, _controlM.SelectedAnimal.GetType().ToString());
         }

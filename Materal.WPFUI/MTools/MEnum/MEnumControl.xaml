@@ -14,7 +14,7 @@
         <Grid.Resources>
             <local:AnimalEnumBindModel x:Key="animalEnumBindModel"></local:AnimalEnumBindModel>
         </Grid.Resources>
-        <ComboBox x:Name="enumComboBox" VerticalAlignment="Top" Margin="10,10,10,0" ItemsSource="{Binding Source={StaticResource animalEnumBindModel}}" DisplayMemberPath="EnumName" SelectedValuePath="EnumValue"  SelectedValue="{Binding Path=SelectedAnimal}" SelectionChanged="enumComboBox_SelectionChanged"/>
+        <ComboBox x:Name="enumComboBox" VerticalAlignment="Top" Margin="10,10,10,0" ItemsSource="{Binding Source={StaticResource animalEnumBindModel}}" DisplayMemberPath="EnumName" SelectedValuePath="EnumValue"  SelectedValue="{Binding Path=SelectedAnimal}" SelectionChanged="EnumComboBox_SelectionChanged"/>
         <TextBlock x:Name="enumTextBlock" Grid.Column="1" VerticalAlignment="Top" Margin="10" FontSize="16" LineHeight="21" Text="TextBlock"></TextBlock>
     </Grid>
 </UserControl>
