@@ -13,7 +13,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace Materal.WPFUI.MTools.MConvert
+namespace Materal.WPFUI.MTest.MConvert
 {
     /// <summary>
     /// ListToDataTableControl.xaml 的交互逻辑

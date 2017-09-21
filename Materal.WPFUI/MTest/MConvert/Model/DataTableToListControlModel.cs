@@ -1,31 +1,30 @@
 ﻿using MateralTools.MConvert;
 using System;
 using System.Collections.Generic;
-using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Materal.WPFUI.MTools.MConvert
+namespace Materal.WPFUI.MTest.MConvert
 {
     /// <summary>
-    /// List到数据表转换模型
+    /// 数据表到List转换模型
     /// </summary>
-    public class ListToDataTableControlModel : MControlModel
+    public class DataTableToListControlModel : MControlModel
     {
         /// <summary>
         /// 构造方法
         /// </summary>
-        public ListToDataTableControlModel()
+        public DataTableToListControlModel()
         {
-            ListUserM = UserModel.GetDefualtList();
+            DtUser = UserModel.GetDefualtDataTable();
         }
         /// <summary>
         /// 列表转换为数据表
         /// </summary>
-        public void ListToDataTable()
+        public void DataTableToList()
         {
-            DtUser = ConvertManager.ListToDataTable(ListUserM);
+            ListUserM = ConvertManager.DataTableToList<UserModel>(DtUser);
         }
     }
 }

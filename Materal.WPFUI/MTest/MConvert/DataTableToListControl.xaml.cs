@@ -13,48 +13,43 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace Materal.WPFUI.MTools.MEnum
+namespace Materal.WPFUI.MTest.MConvert
 {
     /// <summary>
-    /// MEnumForm.xaml 的交互逻辑
+    /// DataTableToListControl.xaml 的交互逻辑
     /// </summary>
-    public partial class MEnumControl : UserControl
+    public partial class DataTableToListControl : UserControl
     {
-        #region 构造函数
         /// <summary>
         /// 构造函数
         /// </summary>
-        public MEnumControl()
+        public DataTableToListControl()
         {
             InitializeComponent();
         }
-        #endregion
-        #region 成员
         /// <summary>
-        /// 当前窗口模型对象
+        /// 空间模型对象
         /// </summary>
-        private MEnumControlModel _controlM;
-        #endregion
-        #region 事件
+        private DataTableToListControlModel _controlM;
         /// <summary>
-        /// 空间加载完毕事件
+        /// 控件加载事件
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
         private void UserControl_Loaded(object sender, RoutedEventArgs e)
         {
-            _controlM = new MEnumControlModel();
-            DataContext = _controlM;
+            _controlM = new DataTableToListControlModel();
+            dtDataGrid.ItemsSource = _controlM.DvUser;
         }
-        #endregion
         /// <summary>
-        /// 枚举下拉框选项更改事件
+        /// 按钮单击事件
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        private void EnumComboBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        private void ConvertBtn_Click(object sender, RoutedEventArgs e)
         {
-            this.enumTextBlock.Text = string.Format("当前选择项信息:\r\n实际值:{0}\r\n显示值:{1}\r\n类型:{2}", _controlM.SelectedAnimal.ToString(), _controlM.SelectedAnimalName, _controlM.SelectedAnimal.GetType().ToString());
+            _controlM.DataTableToList();
+            this.listDataGrid.ItemsSource = _controlM.ListUserM;
         }
     }
 }

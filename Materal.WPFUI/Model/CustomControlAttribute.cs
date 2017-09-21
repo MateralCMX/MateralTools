@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 namespace Materal.WPFUI
 {
     /// <summary>
-    /// 自定义空间属性
+    /// 自定义控件属性
     /// </summary>
     public class CustomControlAttribute : Attribute
     {

@@ -5,7 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Materal.WPFUI.MTools.MEnum
+namespace Materal.WPFUI.MTest.MEnum
 {
     /// <summary>
     /// 动物枚举

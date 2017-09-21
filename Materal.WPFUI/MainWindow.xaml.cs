@@ -118,16 +118,35 @@ namespace Materal.WPFUI
         /// <param name="e"></param>
         private void MEnumMenuItem_Click(object sender, RoutedEventArgs e)
         {
-            AddControl(new MTools.MEnum.MEnumControl());
+            AddControl(new MTest.MEnum.MEnumControl());
         }
-        #endregion
+        /// <summary>
+        /// 数据表转换列表工具
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void MDataTableToListMenuItem_Click(object sender, RoutedEventArgs e)
         {
-            AddControl(new MTools.MConvert.DataTableToListControl());
+            AddControl(new MTest.MConvert.DataTableToListControl());
         }
+        /// <summary>
+        /// 列表转换数据表工具
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void MListToDataTableMenuItem_Click(object sender, RoutedEventArgs e)
         {
-            AddControl(new MTools.MConvert.ListToDataTableControl());
+            AddControl(new MTest.MConvert.ListToDataTableControl());
         }
+        /// <summary>
+        /// 源文件导出工具
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void SourceFileExportMenuItem_Click(object sender, RoutedEventArgs e)
+        {
+            AddControl(new MTools.SourceFileExport.SourceFileExportControl());
+        }
+        #endregion
     }
 }

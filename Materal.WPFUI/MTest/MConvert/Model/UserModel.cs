@@ -5,7 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Materal.WPFUI.MTools.MConvert
+namespace Materal.WPFUI.MTest.MConvert
 {
     /// <summary>
     /// 用户模型
