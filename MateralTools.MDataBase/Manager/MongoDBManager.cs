@@ -8,7 +8,7 @@ using System.Reflection;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace MateralTools.MDataBase.Manager
+namespace MateralTools.MDataBase
 {
     /// <summary>
     /// MongoDB管理类
