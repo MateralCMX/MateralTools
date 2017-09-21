@@ -195,17 +195,13 @@
       <Project>{0f3e3189-5442-4b98-a718-4c1f350e1e32}</Project>
       <Name>MateralTools.MHttpWeb</Name>
     </ProjectReference>
-    <ProjectReference Include="..\MateralTools.MImageTests\MateralTools.MImageTests.csproj">
-      <Project>{53e26eb3-b626-494b-a7c0-fc92ebfe0a6b}</Project>
-      <Name>MateralTools.MImageTests</Name>
-    </ProjectReference>
     <ProjectReference Include="..\MateralTools.MImage\MateralTools.MImage.csproj">
       <Project>{4850e1c0-5a3a-4020-b8b9-ab1eaa4a6e4e}</Project>
       <Name>MateralTools.MImage</Name>
     </ProjectReference>
-    <ProjectReference Include="..\MateralTools.MKeyWordTests\MateralTools.MKeyWordTests.csproj">
-      <Project>{88b0f491-327a-405e-8881-c5c35a07028b}</Project>
-      <Name>MateralTools.MKeyWordTests</Name>
+    <ProjectReference Include="..\MateralTools.MIO\MateralTools.MIO.csproj">
+      <Project>{5f91f8b4-1a4d-4925-970b-ee12e26e897e}</Project>
+      <Name>MateralTools.MIO</Name>
     </ProjectReference>
     <ProjectReference Include="..\MateralTools.MKeyWord\MateralTools.MKeyWord.csproj">
       <Project>{25f98660-33c9-4a81-8c13-b984bfc44267}</Project>

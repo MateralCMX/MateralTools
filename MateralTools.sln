@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
-VisualStudioVersion = 15.0.26730.15
+VisualStudioVersion = 15.0.26730.16
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MateralTools.Base", "MateralTools.Base\MateralTools.Base.csproj", "{283A70B6-C653-4886-82F1-D9174D1608B0}"
 EndProject
@@ -46,6 +46,8 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Materal.WebPC", "Materal.WebPC\Materal.WebPC.csproj", "{7274BCAB-8A32-4859-BCE1-7D69D69B6E08}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Materal.WebApp", "Materal.WebApp\Materal.WebApp.csproj", "{4566057D-7771-4FBC-AD42-CDE17862A1A0}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MateralTools.MIO", "MateralTools.MIO\MateralTools.MIO.csproj", "{5F91F8B4-1A4D-4925-970B-EE12E26E897E}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -141,6 +143,10 @@ Global
 		{4566057D-7771-4FBC-AD42-CDE17862A1A0}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{4566057D-7771-4FBC-AD42-CDE17862A1A0}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{4566057D-7771-4FBC-AD42-CDE17862A1A0}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5F91F8B4-1A4D-4925-970B-EE12E26E897E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5F91F8B4-1A4D-4925-970B-EE12E26E897E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5F91F8B4-1A4D-4925-970B-EE12E26E897E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5F91F8B4-1A4D-4925-970B-EE12E26E897E}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

@@ -136,7 +136,7 @@ namespace MateralTools.MHttpWeb
         private static void SetRequestValue(object Model, object value, PropertyInfo prop)
         {
             string propTypeName = prop.PropertyType.Name;
-            if (value != null)
+            if (value != null && value.ToString() != "")
             {
                 if (propTypeName == typeof(Int32).Name)
                 {

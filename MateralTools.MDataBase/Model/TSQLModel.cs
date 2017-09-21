@@ -31,13 +31,24 @@ namespace MateralTools.MDataBase
         /// <summary>
         /// 获得SQLServer参数组
         /// </summary>
+        /// <param name="parameterNames">包含的参数组，为空则全部添加</param>
         /// <returns></returns>
-        public SqlParameter[] GetMSSQLParameter()
+        public SqlParameter[] GetMSSQLParameter(string[] parameterNames = null)
         {
             List<SqlParameter> mssqlParameter = new List<SqlParameter>();
             foreach (TSQLParameter item in SQLParameters)
             {
-                mssqlParameter.Add(new SqlParameter(item.ParameterName, item.Value));
+                if (parameterNames == null)
+                {
+                    mssqlParameter.Add(new SqlParameter(item.ParameterName, item.Value));
+                }
+                else
+                {
+                    if (parameterNames.Contains(item.ParameterName))
+                    {
+                        mssqlParameter.Add(new SqlParameter(item.ParameterName, item.Value));
+                    }
+                }
             }
             return mssqlParameter.ToArray();
         }

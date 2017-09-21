@@ -130,6 +130,19 @@ namespace MateralTools.MCache
             return null;
         }
         /// <summary>
+        /// 读取所有缓存
+        /// </summary>
+        /// <returns></returns>
+        public static object GetAll()
+        {
+            List<object> listM = new List<object>();
+            foreach (string key in _cacheKeys)
+            {
+                listM.Add(_cacheM.Get(key));
+            }
+            return listM;
+        }
+        /// <summary>
         /// 读取缓存
         /// </summary>
         /// <param name="key">Key</param>

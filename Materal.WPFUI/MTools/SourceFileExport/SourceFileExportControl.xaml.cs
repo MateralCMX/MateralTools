@@ -1,5 +1,7 @@
-﻿using System;
+﻿using MateralTools.MIO;
+using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.IO;
 using System.Linq;
 using System.Text;
@@ -107,67 +109,47 @@ namespace Materal.WPFUI.MTools.SourceFileExport
         {
             string codePath = TextCode.Text;
             string targetPath = TextTarget.Text;
-            string[] names = Directory.GetDirectories(codePath);
-            if (Directory.Exists(targetPath))
-            {
-                Directory.Move(targetPath, targetPath + DateTime.UtcNow.ToString("yyyyMMddHHmmss"));
-            }
-            Directory.CreateDirectory(targetPath);
+            ExportInit(targetPath);
             DirectoryInfo di = null;
             string newDirectoryName = string.Empty;
             string[] subNames = null;
+            string[] names = Directory.GetDirectories(codePath);
+            string projectName = "MateralTools";
+            string[] codeDirectoryName = { "Model", "Data", "Manager", "Content", "Lib", "Interface" };
             foreach (string name in names)
             {
                 di = new DirectoryInfo(name);
-                if (di.Name.Contains("MateralTools") && !di.Name.Contains("Tests"))
+                if (di.Name.Contains(projectName) && !di.Name.Contains("Tests"))
                 {
-                    newDirectoryName = targetPath + @"\MateralTools\" + di.Name.Substring("MateralTools".Length + 1);
+                    newDirectoryName = string.Format(@"{0}\{1}\{2}", targetPath, projectName, di.Name.Substring(projectName.Length + 1));
                     Directory.CreateDirectory(newDirectoryName);
                     subNames = Directory.GetDirectories(name);
                     foreach (string subName in subNames)
                     {
                         di = new DirectoryInfo(subName);
-                        if (di.Name == "Model" || di.Name == "Data" || di.Name == "Manager" || di.Name == "Content" || di.Name == "Lib" || di.Name == "Interface")
+                        if (codeDirectoryName.Contains(di.Name))
                         {
-                            Copy(di.FullName, newDirectoryName, true);
+                            IOManager.CopyDirectory(di.FullName, newDirectoryName, true);
                         }
                     }
                 }
             }
-            MessageBox.Show("导出完成", "提示");
+            MessageBox.Show("导出完成，确定后打开资源管理器", "提示");
+            IOManager.OpenExplorer(targetPath);
         }
-
         /// <summary>
-        /// 复制文件夹
+        /// 导出前准备工作
         /// </summary>
-        /// <param name="sourceFolderName">源文件夹目录</param>
-        /// <param name="destFolderName">目标文件夹目录</param>
-        /// <param name="overwrite">允许覆盖文件</param>
-        public static void Copy(string sourceFolderName, string destFolderName, bool overwrite)
+        /// <param name="targetPath"></param>
+        private void ExportInit(string targetPath)
         {
-            var sourceFilesPath = Directory.GetFileSystemEntries(sourceFolderName);
-
-            for (int i = 0; i < sourceFilesPath.Length; i++)
+            if (Directory.Exists(targetPath))
             {
-                var sourceFilePath = sourceFilesPath[i];
-                var directoryName = System.IO.Path.GetDirectoryName(sourceFilePath);
-                var forlders = directoryName.Split('\\');
-                var lastDirectory = forlders[forlders.Length - 1];
-                var dest = System.IO.Path.Combine(destFolderName, lastDirectory);
-
-                if (File.Exists(sourceFilePath))
-                {
-                    var sourceFileName = System.IO.Path.GetFileName(sourceFilePath);
-                    if (!Directory.Exists(dest))
-                    {
-                        Directory.CreateDirectory(dest);
-                    }
-                    File.Copy(sourceFilePath, System.IO.Path.Combine(dest, sourceFileName), overwrite);
-                }
-                else
-                {
-                    Copy(sourceFilePath, dest, overwrite);
-                }
+                IOManager.DeleteDirectory(targetPath);
+            }
+            else
+            {
+                Directory.CreateDirectory(targetPath);
             }
         }
     }
