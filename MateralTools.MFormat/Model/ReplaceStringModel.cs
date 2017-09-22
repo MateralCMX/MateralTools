@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace MateralTools.MFormat
+﻿namespace MateralTools.MFormat
 {
     /// <summary>
     /// 替换字符串模型

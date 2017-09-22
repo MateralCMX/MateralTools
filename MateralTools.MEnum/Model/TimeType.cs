@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace MateralTools.MEnum
+﻿namespace MateralTools.MEnum
 {
     /// <summary>
     /// 缓存保存时间类型
