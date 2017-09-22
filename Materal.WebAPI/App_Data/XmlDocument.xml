@@ -1015,5 +1015,17 @@
             
             </summary>
         </member>
+        <member name="M:Materal.WebAPI.WebApiApplication.Init">
+            <summary>
+            初始化方法
+            </summary>
+        </member>
+        <member name="M:Materal.WebAPI.WebApiApplication.WebApiApplication_AuthenticateRequest(System.Object,System.EventArgs)">
+            <summary>
+            开启Session支持
+            </summary>
+            <param name="sender"></param>
+            <param name="e"></param>
+        </member>
     </members>
 </doc>

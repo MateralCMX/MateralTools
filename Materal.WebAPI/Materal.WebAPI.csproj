@@ -267,6 +267,68 @@
   <ItemGroup>
     <Content Include="packages.config" />
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\MateralTools.Base\MateralTools.Base.csproj">
+      <Project>{283a70b6-c653-4886-82f1-d9174d1608b0}</Project>
+      <Name>MateralTools.Base</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\MateralTools.MCache\MateralTools.MCache.csproj">
+      <Project>{2280029c-ad42-41a1-a50a-88e76dd164ec}</Project>
+      <Name>MateralTools.MCache</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\MateralTools.MConvert\MateralTools.MConvert.csproj">
+      <Project>{6820dfb5-43af-46f6-ba0e-0a018a1abd6b}</Project>
+      <Name>MateralTools.MConvert</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\MateralTools.MDataBase\MateralTools.MDataBase.csproj">
+      <Project>{0f653b55-2afb-4070-baad-6bf2abb0d1ce}</Project>
+      <Name>MateralTools.MDataBase</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\MateralTools.MEncryption\MateralTools.MEncryption.csproj">
+      <Project>{28e4de1f-d4ca-4035-9d94-6d3937678207}</Project>
+      <Name>MateralTools.MEncryption</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\MateralTools.MEnum\MateralTools.MEnum.csproj">
+      <Project>{67de6314-cec1-4f83-88fb-41bbbfb9d3bd}</Project>
+      <Name>MateralTools.MEnum</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\MateralTools.MFormat\MateralTools.MFormat.csproj">
+      <Project>{a31f9444-2005-40c5-b161-395e2684a651}</Project>
+      <Name>MateralTools.MFormat</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\MateralTools.MHttpWeb\MateralTools.MHttpWeb.csproj">
+      <Project>{0f3e3189-5442-4b98-a718-4c1f350e1e32}</Project>
+      <Name>MateralTools.MHttpWeb</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\MateralTools.MImage\MateralTools.MImage.csproj">
+      <Project>{4850e1c0-5a3a-4020-b8b9-ab1eaa4a6e4e}</Project>
+      <Name>MateralTools.MImage</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\MateralTools.MIO\MateralTools.MIO.csproj">
+      <Project>{5f91f8b4-1a4d-4925-970b-ee12e26e897e}</Project>
+      <Name>MateralTools.MIO</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\MateralTools.MKeyWord\MateralTools.MKeyWord.csproj">
+      <Project>{25f98660-33c9-4a81-8c13-b984bfc44267}</Project>
+      <Name>MateralTools.MKeyWord</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\MateralTools.MLog\MateralTools.MLog.csproj">
+      <Project>{09413a1d-9c01-4087-b4f1-f33c9c28c0d2}</Project>
+      <Name>MateralTools.MLog</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\MateralTools.MMath\MateralTools.MMath.csproj">
+      <Project>{318b8f9f-e19d-4991-97a1-ddcfdc0576be}</Project>
+      <Name>MateralTools.MMath</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\MateralTools.MResult\MateralTools.MResult.csproj">
+      <Project>{72413d5a-5961-4b4e-b606-bf8cbf57d332}</Project>
+      <Name>MateralTools.MResult</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\MateralTools.MVerify\MateralTools.MVerify.csproj">
+      <Project>{bd513fbf-6225-4193-8dd0-f194d098d0d2}</Project>
+      <Name>MateralTools.MVerify</Name>
+    </ProjectReference>
+  </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
     <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
