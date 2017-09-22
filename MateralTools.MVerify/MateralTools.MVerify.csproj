@@ -47,6 +47,7 @@
   <ItemGroup>
     <Compile Include="Data\VerifyData.cs" />
     <Compile Include="Manager\VerifyCodeManager.cs" />
+    <Compile Include="Model\VerfyType.cs" />
     <Compile Include="Model\VerifyCodeConfigModel.cs" />
     <Compile Include="Model\VerifyCodeException.cs" />
     <Compile Include="Model\VerifyCodeImageObfuscationType.cs" />
@@ -55,6 +56,7 @@
     <Compile Include="Manager\VerifyManager.cs" />
     <Compile Include="Model\VerifyCodeModel.cs" />
     <Compile Include="Model\VerifyCodeType.cs" />
+    <Compile Include="Model\VerifyModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -68,6 +70,9 @@
       <Project>{4850E1C0-5A3A-4020-B8B9-AB1EAA4A6E4E}</Project>
       <Name>MateralTools.MImage</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Interface\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

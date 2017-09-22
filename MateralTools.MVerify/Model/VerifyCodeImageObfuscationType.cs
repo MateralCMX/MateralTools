@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace MateralTools.MVerify
+namespace MateralTools.MVerify.Model
 {
     /// <summary>
     /// 图片混淆方式
