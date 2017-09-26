@@ -1,0 +1,11 @@
+{
+	"index.html": {
+		"resources": [
+			"Lib/mui/js/mui.min.js",
+			"Lib/mui/css/mui.min.css",
+			"Lib/m-Tools/ChatManager.js",
+			"Lib/mui/fonts/mui.ttf",
+			"Content/Images/head.jpg"
+		]
+	}
+}

@@ -93,7 +93,11 @@ namespace MateralTools.MChat {
          */
         public Send(message: string, closeFun: Function): void {
             if (this._ws.readyState == WebSocket.OPEN) {
-                this._ws.send(this._targetUserID + "|" + message);
+                var data = {
+                    TargetSocketID: this._targetUserID,
+                    Message: message
+                };
+                this._ws.send(JSON.stringify(data));
             }
             else {
                 if (closeFun != null && closeFun != undefined) {

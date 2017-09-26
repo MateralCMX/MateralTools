@@ -1,10 +1,254 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html>
+
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
     <title>MateralAPP</title>
+    <link rel="stylesheet" href="Lib/mui/css/mui.min.css" />
+    <style>
+        .mui-content{
+            margin-bottom:60px;
+        } 
+        .msg-list {
+        	font-size: 0;
+            padding: 10px;
+        }
+
+            .msg-list > .user-img {
+                width: 40px;
+                height: 40px;
+                border-radius: 5px;
+                display: inline-block;
+            }
+
+            .msg-list > .user-message {
+            	font-size: 16px;
+                display: inline-block;
+                vertical-align: top;
+                margin-left: 10px;
+                padding: 10px;
+                max-width: 250px;
+                border-radius: 5px;
+                background-color: #ffffff;
+                word-break: break-all;
+                position: relative;
+            }
+
+                .msg-list > .user-message::after {
+                    content: " ";
+                    position: absolute;
+                    top: 10px;
+                    left: -5px;
+                    transform: rotateZ(45deg);
+                    width: 10px;
+                    height: 10px;
+                    display: block;
+                    background-color: #ffffff;
+                }
+
+        .mymsg-list {
+        	font-size: 0;
+            padding: 10px;
+            text-align:right;
+        }
+
+            .mymsg-list > .user-img {
+                width: 40px;
+                height: 40px;
+                border-radius: 5px;
+                display: inline-block;
+            }
+
+            .mymsg-list > .user-message {
+            	font-size: 16px;
+                text-align:left;
+                display: inline-block;
+                vertical-align: top;
+                margin-right: 10px;
+                padding: 10px;
+                max-width: 250px;
+                border-radius: 5px;
+                background-color: #9eea6a;
+                word-break: break-all;
+                position: relative;
+            }
+
+                .mymsg-list > .user-message::after {
+                    content: " ";
+                    position: absolute;
+                    top: 10px;
+                    right: -5px;
+                    transform: rotateZ(45deg);
+                    width: 10px;
+                    height: 10px;
+                    display: block;
+                    background-color: #9eea6a;
+                }
+        footer {
+            position: fixed;
+            width: 100%;
+            height: 50px;
+            min-height: 50px;
+            border-top: solid 1px #bbb;
+            left: 0px;
+            bottom: 0px;
+            overflow: hidden;
+            padding: 0px 50px;
+            background-color: #fafafa;
+        }
+
+        .footer-left {
+            position: absolute;
+            width: 50px;
+            height: 50px;
+            left: 0px;
+            bottom: 0px;
+            text-align: center;
+            vertical-align: middle;
+            line-height: 100%;
+            padding: 12px 4px;
+        }
+
+        .footer-right {
+            position: absolute;
+            width: 50px;
+            height: 50px;
+            right: 0px;
+            bottom: 0px;
+            text-align: center;
+            vertical-align: middle;
+            line-height: 100%;
+            padding: 12px 5px;
+            display: inline-block;
+        }
+
+        .footer-center {
+            height: 100%;
+            padding: 5px 0px;
+        }
+    </style>
 </head>
+
 <body>
+    <header class="mui-bar mui-bar-nav">
+        <h1 class="mui-title">chat (聊天窗口)</h1>
+    </header>
+    <div id="MessageList" class="mui-content">
+    </div>
+    <footer>
+        <div class="footer-left">
+            <!--<i class="mui-icon mui-icon-camera" style="font-size: 28px;"></i>-->
+        </div>
+        <div class="footer-center">
+            <input id="InputText" type="text" class='input-text' />
+        </div>
+        <label id="SendBtn" for="" class="footer-right">
+            <i class="mui-icon mui-icon-paperplane" style="font-size: 28px;"></i>
+        </label>
+    </footer>
+    <script type="text/javascript" src="Lib/mui/js/mui.min.js"></script>
+    <script type="text/javascript" src="Lib/m-Tools/ChatManager.js"></script>
+    <script src="Lib/m-Tools/m-Tools.js"></script>
+    <script>
+        function MessagePageModel()
+        {
+            var chatMa;
+            var url = "www.qsmzdm.com/Controllers/Handler/WebChatHandler.ashx";
+            var openFun = function ()
+            {
+            };
+            var receiveFun = function (e)
+            {
+                var mode = JSON.parse(e.data);
+                var MessageList = document.getElementById("MessageList");
+                var messageElement = GetMessageElement(mode);
+                MessageList.appendChild(messageElement);
+            };
+            var closeFun = function (e)
+            {
+            };
+            var errorFun = function ()
+            {
+            };
+            /*初始化*/
+            function Init()
+            {
+                BindEvent();
+                var data = Materal.ToolManager.GetURLParams();
+                chatMa = new MateralTools.MChat.ChatManager(url, data.User, data.TargetUser, openFun, receiveFun, errorFun, closeFun);
+            }
+            /*获得对方聊天元素*/
+            function GetMessageElement(model)
+            {
+                var messageElement = document.createElement("div");
+                messageElement.setAttribute("class", "msg-list");
+                var messageDiv = document.createElement("div");
+                messageDiv.setAttribute("class", "user-message");
+                messageDiv.textContent = model.Message;
+                var userImg = document.createElement("img");
+                userImg.setAttribute("class", "user-img");
+                userImg.src = model.ImageSrc;
+                userImg.addEventListener("error", ImgErrorEvent);
+                messageElement.appendChild(userImg);
+                messageElement.appendChild(messageDiv);
+                return messageElement;
+            }
+            /*获得我的聊天元素*/
+            function GetMyMessageElement(model)
+            {
+                var messageElement = document.createElement("div");
+                messageElement.setAttribute("class", "mymsg-list");
+
+                var messageDiv = document.createElement("div");
+                messageDiv.setAttribute("class", "user-message");
+                messageDiv.textContent = model.Message;
+
+                var userImg= document.createElement("img");
+                userImg.setAttribute("class", "user-img");
+                userImg.src = model.ImageSrc;
+                userImg.addEventListener("error", ImgErrorEvent);
+
+                messageElement.appendChild(messageDiv);
+                messageElement.appendChild(userImg);
+                return messageElement;
+            }
+            /*图片出错事件*/
+            function ImgErrorEvent(e)
+            {
+                e.target.src = "Content/Images/head.jpg";
+            }
+            /*发送信息*/
+            function Send()
+            {
+                var InputText = document.getElementById("InputText");
+                model = {
+                    ImageSrc: "Content/Images/head.jpg",
+                    Message: InputText.value
+                };
+                if (model.Message == "") { alert("请输入文字");return;}
+                var MessageList = document.getElementById("MessageList");
+                var messageElement = GetMyMessageElement(model);
+                MessageList.appendChild(messageElement);
+                chatMa.Send(model.Message);
+                InputText.value = "";
+            }
+            /*绑定事件*/
+            function BindEvent()
+            {
+                var SendBtn = document.getElementById("SendBtn");
+                SendBtn.addEventListener("tap", function (e)
+                {
+                    Send();
+                });
+            }
+            return {
+                Init: Init
+            }
+        }
+        var PageM = new MessagePageModel();
+        PageM.Init();
+    </script>
 </body>
+
 </html>

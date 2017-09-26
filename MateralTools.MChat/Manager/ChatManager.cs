@@ -1,4 +1,7 @@
-﻿using Newtonsoft.Json;
+﻿using MateralTools.MChat.Model;
+using MateralTools.MConvert;
+using MateralTools.MHttpWeb;
+using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -17,138 +20,102 @@ namespace MateralTools.MChat
     public class ChatManager
     {
         /// <summary>
-        /// 分割消息字符
+        /// socketID名称
         /// </summary>
-        public const char DIVISIONCHAR = '|';
+        public static string SOCKETIDNAME = "UserID";
         /// <summary>
-        /// 链接用户唯一标识名称
+        /// 连接池
         /// </summary>
-        public const string USERIDNAME = "UserID";
-        /// <summary>
-        /// 用户连接池
-        /// </summary>
-        private static Dictionary<string, WebSocket> CONNECT_POOL = new Dictionary<string, WebSocket>();
+        public static Dictionary<string, WebSocket> CONNECT_POOL;
         /// <summary>
         /// 离线消息池
         /// </summary>
-        private static Dictionary<string, List<OffLineMessageModel>> MESSAGE_POOL = new Dictionary<string, List<OffLineMessageModel>>();
+        private static Dictionary<string, List<SendMessageModel>> MESSAGE_POOL;
         /// <summary>
-        /// 即时通讯
+        /// 连接池初始化
         /// </summary>
-        /// <param name="context">WebSocket主体</param>
-        /// <returns></returns>
-        public static async Task StartChat(AspNetWebSocketContext context)
+        /// <param name="socket">连接对象</param>
+        /// <param name="socketID">连接ID</param>
+        private static void ContainsKeyInit(WebSocket socket, string socketID)
         {
-            WebSocket socket = context.WebSocket;
-            string userID = context.QueryString[USERIDNAME].ToString();
-            try
+            if (CONNECT_POOL == null)
             {
-                #region 用户添加连接池
-                //第一次open时，添加到连接池中
-                if (!CONNECT_POOL.ContainsKey(userID))
+                CONNECT_POOL = new Dictionary<string, WebSocket>();
+            }
+            if (MESSAGE_POOL == null)
+            {
+                MESSAGE_POOL = new Dictionary<string, List<SendMessageModel>>();
+            }
+            if (!CONNECT_POOL.ContainsKey(socketID))
+            {
+                CONNECT_POOL.Add(socketID, socket);//不存在，添加
+            }
+            else
+            {
+                if (socket != CONNECT_POOL[socketID])//当前对象不一致，更新
                 {
-                    CONNECT_POOL.Add(userID, socket);//不存在，添加
+                    CONNECT_POOL[socketID] = socket;
                 }
-                else
+            }
+        }
+        /// <summary>
+        /// 开始监听
+        /// </summary>
+        /// <param name="context"></param>
+        /// <returns></returns>
+        public static async Task Start(AspNetWebSocketContext context)
+        {
+            string socketID = context.QueryString[SOCKETIDNAME].ToString();
+            WebSocket socket = context.WebSocket;
+            ContainsKeyInit(socket, socketID);
+            ArraySegment<byte> buffer = new ArraySegment<byte>(new byte[2048]);
+            #region 离线消息处理
+            if (MESSAGE_POOL.ContainsKey(socketID))
+            {
+                List<SendMessageModel> msgs = MESSAGE_POOL[socketID];
+                foreach (SendMessageModel item in msgs)
                 {
-                    if (socket != CONNECT_POOL[userID])//当前对象不一致，更新
-                    {
-                        CONNECT_POOL[userID] = socket;
-                    }
+                    buffer = new ArraySegment<byte>(Encoding.UTF8.GetBytes(ConvertManager.ModelToJson(item)));
+                    await socket.SendAsync(buffer, WebSocketMessageType.Text, true, CancellationToken.None);
                 }
-                #endregion
-                #region 离线消息处理
-                if (MESSAGE_POOL.ContainsKey(userID))
+                MESSAGE_POOL.Remove(socketID);
+            }
+            #endregion
+            while (true)
+            {
+                if (socket.State == WebSocketState.Open)
                 {
-                    List<OffLineMessageModel> msgs = MESSAGE_POOL[userID];
-                    foreach (OffLineMessageModel item in msgs)
+                    WebSocketReceiveResult result = await socket.ReceiveAsync(buffer, CancellationToken.None);
+                    string receivedMessage = Encoding.UTF8.GetString(buffer.Array, 0, result.Count);
+                    ReceivedMessageModel recM = ConvertManager.JsonToModel<ReceivedMessageModel>(receivedMessage);
+                    if (CONNECT_POOL.ContainsKey(recM.TargetSocketID))//判断客户端是否在线
                     {
-                        await socket.SendAsync(item.MsgContent, WebSocketMessageType.Text, true, CancellationToken.None);
-                    }
-                    MESSAGE_POOL.Remove(userID);//移除离线消息
-                }
-                #endregion
-                string descUser = string.Empty;//目的用户
-                while (true)
-                {
-                    if (socket.State == WebSocketState.Open)
-                    {
-                        ArraySegment<byte> buffer = new ArraySegment<byte>(new byte[2048]);
-                        WebSocketReceiveResult result = await socket.ReceiveAsync(buffer, CancellationToken.None);
-
-                        #region 消息处理（字符截取、消息转发）
-                        try
+                        WebSocket destSocket = CONNECT_POOL[recM.TargetSocketID];//目的客户端
+                        if (destSocket != null && destSocket.State == WebSocketState.Open)
                         {
-                            #region 关闭Socket处理，删除连接池
-                            if (socket.State != WebSocketState.Open)
-                            {
-                                if (CONNECT_POOL.ContainsKey(userID))
-                                { 
-                                    CONNECT_POOL.Remove(userID);
-                                }
-                                break;
-                            }
-                            #endregion
-
-                            string userMsg = Encoding.UTF8.GetString(buffer.Array, 0, result.Count);//发送过来的消息
-                            string[] msgList = userMsg.Split(DIVISIONCHAR);
-                            if (msgList.Length >= 2)
-                            {
-                                if (msgList[0].Trim().Length > 0)
-                                {
-                                    descUser = msgList[0].Trim();
-                                }
-                                if (msgList.Length == 2)
-                                {
-                                    userMsg = msgList[1];
-                                }
-                                else
-                                {
-                                    userMsg = "";
-                                    for (int i = 1; i < msgList.Length; i++)
-                                    {
-                                        userMsg += msgList[i] + "|";
-                                    }
-                                    userMsg = userMsg.Substring(0, userMsg.Length - 1);
-                                }
-                            }
-                            buffer = new ArraySegment<byte>(Encoding.UTF8.GetBytes(userMsg));
-                            if (CONNECT_POOL.ContainsKey(descUser))//判断客户端是否在线
-                            {
-                                WebSocket destSocket = CONNECT_POOL[descUser];//目的客户端
-                                if (destSocket != null && destSocket.State == WebSocketState.Open)
-                                {
-                                    await destSocket.SendAsync(buffer, WebSocketMessageType.Text, true, CancellationToken.None);
-                                }
-                            }
-                            else
-                            {
-                                await Task.Run(() =>
-                                {
-                                    if (!MESSAGE_POOL.ContainsKey(descUser))//将用户添加至离线消息池中
-                                    {
-                                        MESSAGE_POOL.Add(descUser, new List<OffLineMessageModel>());
-                                    }
-                                    MESSAGE_POOL[descUser].Add(new OffLineMessageModel(DateTime.Now, buffer));//添加离线消息
-                                });
-                            }
+                            buffer = new ArraySegment<byte>(Encoding.UTF8.GetBytes(ConvertManager.ModelToJson(new SendMessageModel(recM.Message))));
+                            await destSocket.SendAsync(buffer, WebSocketMessageType.Text, true, CancellationToken.None);
                         }
-                        catch (Exception ex)
-                        {
-                        }
-                        #endregion
                     }
                     else
                     {
-                        break;
+                        await Task.Run(() =>
+                        {
+                            if (!MESSAGE_POOL.ContainsKey(recM.TargetSocketID))//将用户添加至离线消息池中
+                            {
+                                MESSAGE_POOL.Add(recM.TargetSocketID, new List<SendMessageModel>());
+                            }
+                            MESSAGE_POOL[recM.TargetSocketID].Add(new SendMessageModel(recM.Message));//添加离线消息
+                        });
                     }
                 }
-            }
-            catch (Exception ex)
-            {
-                if (CONNECT_POOL.ContainsKey(userID))
+                else
                 {
-                    CONNECT_POOL.Remove(userID);
+                    if (CONNECT_POOL.ContainsKey(socketID))
+                    {
+                        CONNECT_POOL.Remove(socketID);
+                    }
+                    break;
                 }
             }
         }

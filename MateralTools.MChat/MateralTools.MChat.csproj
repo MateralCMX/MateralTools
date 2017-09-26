@@ -43,8 +43,8 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Manager\ChatManager.cs" />
-    <Compile Include="Model\ChatUserModel.cs" />
-    <Compile Include="Model\MessageInfoModel.cs" />
+    <Compile Include="Model\SendMessageModel.cs" />
+    <Compile Include="Model\ReceivedMessageModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -52,6 +52,16 @@
   </ItemGroup>
   <ItemGroup>
     <TypeScriptCompile Include="Manager\ChatManager.ts" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\MateralTools.MConvert\MateralTools.MConvert.csproj">
+      <Project>{6820DFB5-43AF-46F6-BA0E-0A018A1ABD6B}</Project>
+      <Name>MateralTools.MConvert</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\MateralTools.MHttpWeb\MateralTools.MHttpWeb.csproj">
+      <Project>{0F3E3189-5442-4B98-A718-4C1F350E1E32}</Project>
+      <Name>MateralTools.MHttpWeb</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

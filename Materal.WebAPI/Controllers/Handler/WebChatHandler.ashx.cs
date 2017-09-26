@@ -19,7 +19,7 @@ namespace Materal.WebAPI.Controllers.Handler
         {
             if (context.IsWebSocketRequest)
             {
-                context.AcceptWebSocketRequest(ChatManager.StartChat);
+                context.AcceptWebSocketRequest(ChatManager.Start);
             }
         }
         /// <summary>

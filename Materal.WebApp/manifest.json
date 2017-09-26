@@ -189,5 +189,51 @@
 				}
 			}
 		}
+	},
+	"dependencies": {
+		"pages": {
+			"index.html": {
+				"resources": [
+					"Lib/mui/js/mui.min.js",
+					"Lib/mui/css/mui.min.css",
+					"Lib/m-Tools/ChatManager.js",
+					"Lib/mui/fonts/mui.ttf",
+					"Content/Images/head.jpg"
+				],
+				"refer": [],
+				"priority": 0
+			}
+		},
+		"idle": {
+			"resources": [
+				"obj/Debug/Materal.WebApp.dll",
+				"Web.Debug.config",
+				"Lib/mui/css/mui.css",
+				"Lib/m-Tools/ChatManager.js.map",
+				"obj/Release/TemporaryGeneratedFile_E7A71F73-0F8D-4B9B-B56E-8E70B10BC5D3.cs",
+				"obj/Release/Materal.WebApp.csproj.CoreCompileInputs.cache",
+				"Materal.WebApp.csproj",
+				"obj/Debug/Materal.WebApp.csproj.CoreCompileInputs.cache",
+				"packages.config",
+				"obj/Debug/Materal.WebApp.csproj.FileListAbsolute.txt",
+				"obj/Release/TemporaryGeneratedFile_036C0B5B-1481-4323-8D20-8F5ADCB23D92.cs",
+				"Lib/mui/js/mui.js",
+				"obj/Debug/DesignTimeResolveAssemblyReferencesInput.cache",
+				"obj/Debug/Materal.WebApp.csproj.CopyComplete",
+				"obj/Release/DesignTimeResolveAssemblyReferencesInput.cache",
+				"View/WebChat.html",
+				"Properties/AssemblyInfo.cs",
+				"Web.config",
+				"TEST.html",
+				"obj/Debug/TemporaryGeneratedFile_E7A71F73-0F8D-4B9B-B56E-8E70B10BC5D3.cs",
+				"obj/Release/TemporaryGeneratedFile_5937a670-0e60-4077-877b-f7221da3dda1.cs",
+				"obj/Debug/TemporaryGeneratedFile_036C0B5B-1481-4323-8D20-8F5ADCB23D92.cs",
+				"Materal.WebApp.csproj.user",
+				"obj/Debug/TemporaryGeneratedFile_5937a670-0e60-4077-877b-f7221da3dda1.cs",
+				"obj/Debug/Materal.WebApp.pdb",
+				"Web.Release.config",
+				"Lib/m-Tools/ChatManager.ts"
+			]
+		}
 	}
 }
