@@ -15,6 +15,67 @@
             </summary>
             <param name="bundles"></param>
         </member>
+        <member name="T:Materal.WebAPI.CorsAttribute">
+            <summary>
+            跨域支持处理
+            </summary>
+        </member>
+        <member name="P:Materal.WebAPI.CorsAttribute.AllowOrigins">
+            <summary>
+            允许访问的URL
+            </summary>
+        </member>
+        <member name="P:Materal.WebAPI.CorsAttribute.ErrorMessage">
+            <summary>
+            错误信息
+            </summary>
+        </member>
+        <member name="M:Materal.WebAPI.CorsAttribute.#ctor(System.String[])">
+            <summary>
+            构造方法
+            </summary>
+            <param name="allowOrigins"></param>
+        </member>
+        <member name="M:Materal.WebAPI.CorsAttribute.TryEvaluate(System.Net.Http.HttpRequestMessage,System.Collections.Generic.IDictionary{System.String,System.String}@)">
+            <summary>
+            
+            </summary>
+            <param name="request"></param>
+            <param name="headers"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Materal.WebAPI.CorsAttribute.GenerateResponseHeaders(System.Net.Http.HttpRequestMessage)">
+            <summary>
+            
+            </summary>
+            <param name="request"></param>
+            <returns></returns>
+        </member>
+        <member name="T:Materal.WebAPI.HttpRequestMessageExtensions">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:Materal.WebAPI.HttpRequestMessageExtensions.IsPreflightRequest(System.Net.Http.HttpRequestMessage)">
+            <summary>
+            
+            </summary>
+            <param name="request"></param>
+            <returns></returns>
+        </member>
+        <member name="T:Materal.WebAPI.CorsMessageHandler">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:Materal.WebAPI.CorsMessageHandler.SendAsync(System.Net.Http.HttpRequestMessage,System.Threading.CancellationToken)">
+            <summary>
+            
+            </summary>
+            <param name="request"></param>
+            <param name="cancellationToken"></param>
+            <returns></returns>
+        </member>
         <member name="T:Materal.WebAPI.FilterConfig">
             <summary>
             
@@ -37,6 +98,32 @@
             </summary>
             <param name="routes"></param>
         </member>
+        <member name="T:Materal.WebAPI.VerificationLoginAttribute">
+            <summary>
+            验证登录过滤器
+            </summary>
+        </member>
+        <member name="M:Materal.WebAPI.VerificationLoginAttribute.#ctor">
+            <summary>
+            构造方法
+            </summary>
+        </member>
+        <member name="M:Materal.WebAPI.VerificationLoginAttribute.OnActionExecuting(System.Web.Http.Controllers.HttpActionContext)">
+            <summary>
+            执行Action之前触发
+            </summary>
+            <param name="actionContext"></param>
+        </member>
+        <member name="T:Materal.WebAPI.NotVerificationLoginAttribute">
+            <summary>
+            不进行登录验证
+            </summary>
+        </member>
+        <member name="M:Materal.WebAPI.NotVerificationLoginAttribute.#ctor">
+            <summary>
+            
+            </summary>
+        </member>
         <member name="T:Materal.WebAPI.WebApiConfig">
             <summary>
             
@@ -47,6 +134,22 @@
             
             </summary>
             <param name="config"></param>
+        </member>
+        <member name="T:Materal.WebAPI.WebApiExceptionAttribute">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:Materal.WebAPI.WebApiExceptionAttribute.#ctor">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:Materal.WebAPI.WebApiExceptionAttribute.OnException(System.Web.Http.Filters.HttpActionExecutedContext)">
+            <summary>
+            
+            </summary>
+            <param name="actionExecutedContext"></param>
         </member>
         <member name="T:Materal.WebAPI.Areas.HelpPage.ApiDescriptionExtensions">
             <summary>
@@ -956,6 +1059,22 @@
             </summary>
             <param name="actionDescriptor"></param>
             <returns></returns>
+        </member>
+        <member name="T:Materal.WebAPI.Controllers.Handler.WebChatHandler">
+            <summary>
+            WebChatHandler 的摘要说明
+            </summary>
+        </member>
+        <member name="M:Materal.WebAPI.Controllers.Handler.WebChatHandler.ProcessRequest(System.Web.HttpContext)">
+            <summary>
+            入口
+            </summary>
+            <param name="context"></param>
+        </member>
+        <member name="P:Materal.WebAPI.Controllers.Handler.WebChatHandler.IsReusable">
+            <summary>
+            可重复使用
+            </summary>
         </member>
         <member name="T:Materal.WebAPI.Controllers.HomeController">
             <summary>

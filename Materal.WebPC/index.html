@@ -1,10 +1,105 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html>
-	<head>
-		<meta charset="utf-8" />
-		<title></title>
-	</head>
-	<body>
-		
-	</body>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0" />
+    <title></title>
+</head>
+<body>
+    <div>
+        我的ID：<input id="userID" type="text" value="Materal" />
+        <input id="open" type="button" value="连接服务器" />
+        <br />
+        目标ID：<input id="targetUserID" type="text" value="Ch" />
+        <input id="close" type="button" value="关闭服务器" />
+        <br />
+        要发送的消息：<textarea id="message">123456</textarea>
+        <input id="send" type="button" value="发送" />
+        <br />
+        <div id="msg">
+        </div>
+    </div>
+    <script src="ChatManager.js"></script>
+    <script>
+        window.addEventListener("load", function ()
+        {
+            var chatMa;
+            var url = "localhost:55051/Controllers/Handler/WebChatHandler.ashx";
+            var userID = document.getElementById("userID");
+            var targetUserID = document.getElementById("targetUserID");
+            var message = document.getElementById("message");
+            var open = document.getElementById("open");
+            var close = document.getElementById("close");
+            var send = document.getElementById("send");
+            var msg = document.getElementById("msg");
+            var openFun = function ()
+            {
+                msg.innerHTML += "<p>已经连接</p>";
+            };
+            var receiveFun = function (e)
+            {
+                console.log(e);
+                msg.innerHTML += "<p>" + e.data + "</p>";
+            };
+            var closeFun = function (e)
+            {
+                msg.innerHTML += "<p>已经关闭链接</p>";
+            };
+            var errorFun = function ()
+            {
+                msg.innerHTML += "<p>" + targetUserID.value + ":" + JSON.stringify(e) + "</p>";
+            };
+            open.addEventListener("click", function ()
+            {
+                chatMa = new MateralTools.MChat.ChatManager(url, userID.value, targetUserID.value, openFun, receiveFun, errorFun, closeFun);
+            });
+            close.addEventListener("click", function ()
+            {
+                chatMa.Close();
+            });
+            send.addEventListener("click", function ()
+            {
+                chatMa.Send(message.value);
+            });
+        });
+        //var ws;
+        //var msg = document.getElementById("msg");
+        //window.addEventListener("load", function () {
+        //    var conn = document.getElementById("conn");
+        //    var user = document.getElementById("user");
+        //    conn.addEventListener("click", function () {
+        //        ws = new WebSocket('ws://' + window.location.hostname + ':' + window.location.port + '/Ajax/Handler1.ashx?UserID=' + user.value);
+        //        msg.innerHTML += "<p>正在连接</p>";
+        //        ws.addEventListener("open", function () {
+        //            msg.innerHTML += "<p>已经连接</p>";
+        //        });
+        //        ws.addEventListener("message", function (e) {
+        //            msg.innerHTML += "<p>" + e.data+ "</p>";
+        //        });
+        //        ws.addEventListener("error", function (e) {
+        //            msg.innerHTML += "<p>" + JSON.stringify(e) + "</p>";
+        //        });
+        //        ws.addEventListener("close", function (e) {
+        //            msg.innerHTML += "<p>已经关闭链接</p>";
+        //        });
+        //    });
+        //    var close = document.getElementById("close");
+        //    close.addEventListener("click", function () {
+        //        ws.close();
+        //    });
+        //    var send = document.getElementById("send");
+        //    send.addEventListener("click", function () {
+        //        if (ws.readyState == WebSocket.OPEN) {
+        //            var to = document.getElementById("to");
+        //            var content = document.getElementById("content");
+        //            ws.send(to.value + "|" + content.value);
+        //        }
+        //        else {
+        //            var tips = document.getElementById("tips");
+        //            tips.textContent = "链接已关闭";
+        //        }
+        //    });
+        //});
+    </script>
+</body>
 </html>

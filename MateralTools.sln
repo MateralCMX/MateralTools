@@ -51,6 +51,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MateralTools.MIO", "Materal
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MateralTools.MResult", "MateralTools.MResult\MateralTools.MResult.csproj", "{72413D5A-5961-4B4E-B606-BF8CBF57D332}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MateralTools.MChat", "MateralTools.MChat\MateralTools.MChat.csproj", "{23EFD515-356E-4A13-AAD6-9F91217525C6}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -153,6 +155,10 @@ Global
 		{72413D5A-5961-4B4E-B606-BF8CBF57D332}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{72413D5A-5961-4B4E-B606-BF8CBF57D332}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{72413D5A-5961-4B4E-B606-BF8CBF57D332}.Release|Any CPU.Build.0 = Release|Any CPU
+		{23EFD515-356E-4A13-AAD6-9F91217525C6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{23EFD515-356E-4A13-AAD6-9F91217525C6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{23EFD515-356E-4A13-AAD6-9F91217525C6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{23EFD515-356E-4A13-AAD6-9F91217525C6}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

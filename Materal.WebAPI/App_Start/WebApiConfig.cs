@@ -26,6 +26,8 @@ namespace Materal.WebAPI
                 routeTemplate: "api/{controller}/{id}",
                 defaults: new { id = RouteParameter.Optional }
             );
+            config.Filters.Add(new VerificationLoginAttribute());
+            config.Filters.Add(new WebApiExceptionAttribute());
         }
     }
 }

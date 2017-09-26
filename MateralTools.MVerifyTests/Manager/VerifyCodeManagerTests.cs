@@ -6,6 +6,7 @@ using System.Linq;
 using System.Text;
 using System.Drawing;
 using System.Threading.Tasks;
+using MateralTools.MVerify.Model;
 
 namespace MateralTools.MVerify.Tests
 {
