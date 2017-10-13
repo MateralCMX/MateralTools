@@ -53,6 +53,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MateralTools.MResult", "Mat
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MateralTools.MChat", "MateralTools.MChat\MateralTools.MChat.csproj", "{23EFD515-356E-4A13-AAD6-9F91217525C6}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MateralTools.MEncryptionTests", "MateralTools.MEncryptionTests\MateralTools.MEncryptionTests.csproj", "{15503786-8D02-4211-AAE5-592E08569182}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -159,6 +161,10 @@ Global
 		{23EFD515-356E-4A13-AAD6-9F91217525C6}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{23EFD515-356E-4A13-AAD6-9F91217525C6}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{23EFD515-356E-4A13-AAD6-9F91217525C6}.Release|Any CPU.Build.0 = Release|Any CPU
+		{15503786-8D02-4211-AAE5-592E08569182}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{15503786-8D02-4211-AAE5-592E08569182}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{15503786-8D02-4211-AAE5-592E08569182}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{15503786-8D02-4211-AAE5-592E08569182}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
