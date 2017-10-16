@@ -55,6 +55,12 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MateralTools.MChat", "Mater
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MateralTools.MEncryptionTests", "MateralTools.MEncryptionTests\MateralTools.MEncryptionTests.csproj", "{15503786-8D02-4211-AAE5-592E08569182}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MateralTools.MConvertTests", "MateralTools.MConvertTests\MateralTools.MConvertTests.csproj", "{37EA1AB4-000A-4D59-B2B6-FE7170D58F18}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MateralTools.MEmail", "MateralTools.MEmail\MateralTools.MEmail.csproj", "{F402532A-8CE6-466A-9706-08995D2E879A}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MateralTools.MEmailTests", "MateralTools.MEmailTests\MateralTools.MEmailTests.csproj", "{220AC6BB-0D1B-4545-8F28-A1CC3D136F9A}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -165,6 +171,18 @@ Global
 		{15503786-8D02-4211-AAE5-592E08569182}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{15503786-8D02-4211-AAE5-592E08569182}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{15503786-8D02-4211-AAE5-592E08569182}.Release|Any CPU.Build.0 = Release|Any CPU
+		{37EA1AB4-000A-4D59-B2B6-FE7170D58F18}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{37EA1AB4-000A-4D59-B2B6-FE7170D58F18}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{37EA1AB4-000A-4D59-B2B6-FE7170D58F18}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{37EA1AB4-000A-4D59-B2B6-FE7170D58F18}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F402532A-8CE6-466A-9706-08995D2E879A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F402532A-8CE6-466A-9706-08995D2E879A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F402532A-8CE6-466A-9706-08995D2E879A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F402532A-8CE6-466A-9706-08995D2E879A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{220AC6BB-0D1B-4545-8F28-A1CC3D136F9A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{220AC6BB-0D1B-4545-8F28-A1CC3D136F9A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{220AC6BB-0D1B-4545-8F28-A1CC3D136F9A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{220AC6BB-0D1B-4545-8F28-A1CC3D136F9A}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
