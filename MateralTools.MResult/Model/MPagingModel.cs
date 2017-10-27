@@ -16,11 +16,24 @@
         /// <summary>
         /// 总页数
         /// </summary>
-        public int PagingCount { get; set; }
+        public long PagingCount
+        {
+            get
+            {
+                if (DataCount % PagingSize > 0)
+                {
+                    return DataCount / PagingSize + 1;
+                }
+                else
+                {
+                    return DataCount / PagingSize;
+                }
+            }
+        }
         /// <summary>
         /// 数据总数
         /// </summary>
-        public int DataCount { get; set; }
+        public long DataCount { get; set; }
     }
     /// <summary>
     /// 分页数据模型

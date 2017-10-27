@@ -78,5 +78,29 @@ namespace MateralTools.MEnum
         {
             return GetCount(enumM.GetType());
         }
+        /// <summary>
+        /// 获得所有枚举模型
+        /// </summary>
+        /// <param name="enumType">枚举类型</param>
+        /// <returns>枚举模型列表</returns>
+        public static List<EnumModel> GetAllEnum(Type enumType)
+        {
+            if (enumType.IsEnum)
+            {
+                List<EnumModel> listM = new List<EnumModel>();
+                Array allEnums = Enum.GetValues(enumType);
+                EnumModel enumM;
+                foreach (object item in allEnums)
+                {
+                    enumM = new EnumModel((Enum)item);
+                    listM.Add(enumM);
+                }
+                return listM;
+            }
+            else
+            {
+                throw new ApplicationException("该类型不是枚举类型");
+            }
+        }
     }
 }
