@@ -200,8 +200,7 @@ namespace Materal {
                 FormatStr = FormatStr.replace(RegExp.$1, (DateTime.getFullYear() + "").substr(4 - RegExp.$1.length));
             }
             for (var data in formatData) {
-                if (new RegExp("(" + data + ")").test(FormatStr))
-                {
+                if (new RegExp("(" + data + ")").test(FormatStr)) {
                     FormatStr = FormatStr.replace(RegExp.$1, (RegExp.$1.length == 1) ? (formatData[data]) : (("00" + formatData[data]).substr(("" + formatData[data]).length)));
                 }
             }
@@ -435,6 +434,10 @@ namespace Materal {
                 }
                 if (!ToolManager.IsNullOrUndefinedOrEmpty(classStr)) {
                     element.setAttribute("class", classStr);
+                    resM = true;
+                }
+                else {
+                    element.removeAttribute("class");
                     resM = true;
                 }
             }

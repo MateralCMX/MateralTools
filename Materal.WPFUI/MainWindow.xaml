@@ -40,5 +40,7 @@
                 <TextBlock x:Name="RightTxt" Text="主界面"/>
             </StatusBarItem>
         </StatusBar>
+        <TextBox x:Name="TextMessage" HorizontalAlignment="Left" Height="23" Margin="48,59,0,0" Grid.Row="1" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="420"/>
+        <Button x:Name="ShowMessage" Content="Button" HorizontalAlignment="Left" Margin="49,87,0,0" Grid.Row="1" VerticalAlignment="Top" Width="75" Click="ShowMessage_Click"/>
     </Grid>
 </Window>
