@@ -346,7 +346,7 @@ namespace MateralTools.MConvert
                 tempProp = T2Props.Where(m => m.Name == prop.Name).FirstOrDefault();
                 if (tempProp != null)
                 {
-                    prop.SetValue(model2, tempProp.GetValue(model1, null), null);
+                    tempProp.SetValue(model2, prop.GetValue(model1, null), null);
                 }
             }
         }
