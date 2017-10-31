@@ -824,7 +824,12 @@ var Materal;
                 var res = void 0;
                 switch (config.dataType) {
                     case "json":
-                        res = JsonManager.JSONParse(xhr.responseText);
+                        try {
+                            res = JsonManager.JSONParse(xhr.responseText);
+                        }
+                        catch (ex) {
+                            res = xhr.responseText;
+                        }
                         break;
                     default:
                         res = xhr.responseText;
