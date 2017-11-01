@@ -56,29 +56,21 @@ namespace MateralTools.MConvert
         {
             Type TType = typeof(T);
             Type colType;
-            ConstructorInfo[] cis = TType.GetConstructors();
             DataTable dt = new DataTable();
-            if (cis.Length > 0)
+            object[] obj = new object[0];
+            PropertyInfo[] props = typeof(T).GetProperties();
+            DataColumn dc;
+            foreach (PropertyInfo item in props)
             {
-                object[] obj = new object[0];
-                PropertyInfo[] props = typeof(T).GetProperties();
-                DataColumn dc;
-                foreach (PropertyInfo item in props)
+                colType = item.PropertyType;
+                if ((colType.IsGenericType) && (colType.GetGenericTypeDefinition() == typeof(Nullable<>)))
                 {
-                    colType = item.PropertyType;
-                    if ((colType.IsGenericType) && (colType.GetGenericTypeDefinition() == typeof(Nullable<>)))
-                    {
-                        colType = colType.GetGenericArguments()[0];
-                    }
-                    dc = new DataColumn(item.Name, colType);
-                    dt.Columns.Add(dc);
+                    colType = colType.GetGenericArguments()[0];
                 }
-                dt.TableName = TType.Name;
+                dc = new DataColumn(item.Name, colType);
+                dt.Columns.Add(dc);
             }
-            else
-            {
-                dt = null;
-            }
+            dt.TableName = TType.Name;
             return dt;
         }
         /// <summary>
