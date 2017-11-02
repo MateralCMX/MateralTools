@@ -1004,18 +1004,11 @@ namespace Materal {
         private static Readystatechange(xhr: XMLHttpRequest, config: HttpConfigModel): void {
             if (xhr.readyState == 4) {
                 let res: Object;
-                switch (config.dataType) {
-                    case "json":
-                        try {
-                            res = JsonManager.JSONParse(xhr.responseText);
-                        }
-                        catch (ex) {
-                            res = xhr.responseText;
-                        }
-                        break;
-                    default:
-                        res = xhr.responseText;
-                        break;
+                try {
+                    res = JsonManager.JSONParse(xhr.responseText);
+                }
+                catch (ex) {
+                    res = xhr.responseText;
                 }
                 if ((xhr.status >= 200 && xhr.status < 300) || xhr.status == 304) {
                     if (config.complete) {

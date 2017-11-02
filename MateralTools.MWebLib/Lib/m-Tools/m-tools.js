@@ -822,18 +822,11 @@ var Materal;
         HttpManager.Readystatechange = function (xhr, config) {
             if (xhr.readyState == 4) {
                 var res = void 0;
-                switch (config.dataType) {
-                    case "json":
-                        try {
-                            res = JsonManager.JSONParse(xhr.responseText);
-                        }
-                        catch (ex) {
-                            res = xhr.responseText;
-                        }
-                        break;
-                    default:
-                        res = xhr.responseText;
-                        break;
+                try {
+                    res = JsonManager.JSONParse(xhr.responseText);
+                }
+                catch (ex) {
+                    res = xhr.responseText;
                 }
                 if ((xhr.status >= 200 && xhr.status < 300) || xhr.status == 304) {
                     if (config.complete) {
