@@ -403,6 +403,10 @@ var Materal;
                     element.setAttribute("class", classStr);
                     resM = true;
                 }
+                else {
+                    element.removeAttribute("class");
+                    resM = true;
+                }
             }
             return resM;
         };

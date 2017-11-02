@@ -148,5 +148,10 @@ namespace Materal.WPFUI
             AddControl(new MTools.SourceFileExport.SourceFileExportControl());
         }
         #endregion
+
+        private void ShowMessage_Click(object sender, RoutedEventArgs e)
+        {
+            MessageBox.Show(this.TextMessage.Text, "提示", MessageBoxButton.OK);
+        }
     }
 }

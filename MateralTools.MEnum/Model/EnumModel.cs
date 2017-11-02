@@ -6,8 +6,7 @@ namespace MateralTools.MEnum
     /// <summary>
     /// 枚举模型
     /// </summary>
-    [Serializable]
-    public class EnumModel : MBaseModel
+    public class EnumModel
     {
         /// <summary>
         /// 显示名称
