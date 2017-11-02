@@ -1066,9 +1066,26 @@ namespace Materal {
         private static SendPost(config: HttpConfigModel): void {
             let xhr: XMLHttpRequest = HttpManager.GetHttpRequest(config);
             xhr.open(config.type, config.url, config.async);
-            xhr.setRequestHeader("Content-type", "application/json");
+            switch (config.dataType) {
+                case "json":
+                    xhr.setRequestHeader("Content-type", "application/json");
+                    break;
+                case "data":
+                    break;
+                default:
+                    break;
+            }
             if (config.data) {
-                xhr.send(JSON.stringify(config.data));
+                switch (config.dataType) {
+                    case "json":
+                        xhr.send(JSON.stringify(config.data));
+                        break;
+                    case "data":
+                        xhr.send(config.data);
+                        break;
+                    default:
+                        break;
+                }
             }
             else {
                 xhr.send(null);
