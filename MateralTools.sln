@@ -67,6 +67,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MateralTools.MWeChat", "Mat
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MateralTools.MWeChatTests", "MateralTools.MWeChatTests\MateralTools.MWeChatTests.csproj", "{7A72E9B8-734D-4A74-9FA8-A7FF70D38341}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MateralTools.MLinq", "MateralTools.MLinq\MateralTools.MLinq.csproj", "{6D7BBA26-BEB5-403A-9E8C-87F41B30D3D7}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -201,6 +203,10 @@ Global
 		{7A72E9B8-734D-4A74-9FA8-A7FF70D38341}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{7A72E9B8-734D-4A74-9FA8-A7FF70D38341}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{7A72E9B8-734D-4A74-9FA8-A7FF70D38341}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6D7BBA26-BEB5-403A-9E8C-87F41B30D3D7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6D7BBA26-BEB5-403A-9E8C-87F41B30D3D7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6D7BBA26-BEB5-403A-9E8C-87F41B30D3D7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6D7BBA26-BEB5-403A-9E8C-87F41B30D3D7}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

@@ -308,7 +308,11 @@ namespace Materal {
          * @returns 删除后的数组
          */
         public static ArrayRemoveTo<T>(array: Array<T>, Index: number): Array<T> {
+            let count = array.length;
             array.splice(Index, 1);
+            if (count == array.length && count == 1) {
+                array = [];
+            }
             return array;
         }
         /**
@@ -539,7 +543,7 @@ namespace Materal {
                 RemoveClassList = ClassName;
             }
             for (let i = 0; i < RemoveClassList.length; i++) {
-                ArrayManager.ArrayRemove(ClassList, RemoveClassList[i]);
+                ClassList = ArrayManager.ArrayRemove(ClassList, RemoveClassList[i]);
             }
             resM = this.SetClass(element, ClassList);
             return resM;

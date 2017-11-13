@@ -323,7 +323,11 @@ var Materal;
          * @returns 删除后的数组
          */
         ArrayManager.ArrayRemoveTo = function (array, Index) {
+            var count = array.length;
             array.splice(Index, 1);
+            if (count == array.length && count == 1) {
+                array = [];
+            }
             return array;
         };
         /**
@@ -450,7 +454,7 @@ var Materal;
                 RemoveClassList = ClassName;
             }
             for (var i = 0; i < RemoveClassList.length; i++) {
-                ArrayManager.ArrayRemove(ClassList, RemoveClassList[i]);
+                ClassList = ArrayManager.ArrayRemove(ClassList, RemoveClassList[i]);
             }
             resM = this.SetClass(element, ClassList);
             return resM;
