@@ -1471,6 +1471,8 @@ var Materal;
             this.UC = false;
             //是否为Maxthon(遨游)浏览器
             this.Maxthon = false;
+            //是否为微信浏览器
+            this.WeChat = false;
             //具体版本号
             this.Version = "";
         }
@@ -1557,6 +1559,10 @@ var Materal;
                 else if (/Chrome\/(\S+)/.test(userAgent)) {
                     this._browserM.Version = RegExp["$1"];
                     this._browserM.Chrome = true;
+                }
+                else if (/MicroMessenger\/(\S+)/.test(userAgent)) {
+                    this._browserM.Version = RegExp["$1"];
+                    this._browserM.WeChat = true;
                 }
                 else if (/Safari\/(\S+)/.test(userAgent)) {
                     this._browserM.Version = RegExp["$1"];

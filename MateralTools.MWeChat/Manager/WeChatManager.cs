@@ -6,8 +6,10 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Net.Http;
+using System.Security.Cryptography;
 using System.Text;
 using System.Threading.Tasks;
+using System.Web.Security;
 
 namespace MateralTools.MWeChat
 {
@@ -31,7 +33,7 @@ namespace MateralTools.MWeChat
             string[] ArrTmp = { token, timestamp, nonce };
             Array.Sort(ArrTmp);
             string tmpStr = string.Join("", ArrTmp);
-            string result = EncryptionManager.MD5Encode_32(tmpStr, true);
+            string result = FormsAuthentication.HashPasswordForStoringInConfigFile(tmpStr, "SHA1").ToLower();
             if (result == signature)
             {
                 return new HttpResponseMessage()

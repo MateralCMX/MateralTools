@@ -1681,6 +1681,8 @@ namespace Materal {
         public UC: boolean = false;
         //是否为Maxthon(遨游)浏览器
         public Maxthon: boolean = false;
+        //是否为微信浏览器
+        public WeChat: boolean = false;
         //具体版本号
         public Version: string = "";
     }
@@ -1778,6 +1780,10 @@ namespace Materal {
                 else if (/Chrome\/(\S+)/.test(userAgent)) {
                     this._browserM.Version = RegExp["$1"];
                     this._browserM.Chrome = true;
+                }
+                else if (/MicroMessenger\/(\S+)/.test(userAgent)) {
+                    this._browserM.Version = RegExp["$1"];
+                    this._browserM.WeChat = true;
                 }
                 else if (/Safari\/(\S+)/.test(userAgent)) {
                     this._browserM.Version = RegExp["$1"];
