@@ -18,5 +18,4 @@ Materal.DOMManager.AddEvent(window, "load", function () {
             }
         }
     }
-    console.log(ClientInfoM);
 });
