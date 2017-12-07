@@ -89,17 +89,7 @@
   <ItemGroup>
     <TypeScriptCompile Include="Index.ts" />
     <TypeScriptCompile Include="Lib\m-Reset\m-Reset.ts" />
-    <TypeScriptCompile Include="Lib\m-Tools\ArrayManager.ts" />
-    <TypeScriptCompile Include="Lib\m-Tools\DOMManager.ts" />
-    <TypeScriptCompile Include="Lib\m-Tools\EncryptionManager.ts" />
-    <TypeScriptCompile Include="Lib\m-Tools\HttpManager.ts" />
-    <TypeScriptCompile Include="Lib\m-Tools\JsonManager.ts" />
-    <TypeScriptCompile Include="Lib\m-Tools\LocalDataManager.ts" />
-    <TypeScriptCompile Include="Lib\m-Tools\MateralToolsEnums.ts" />
-    <TypeScriptCompile Include="Lib\m-Tools\MateralToolsModels.ts" />
-    <TypeScriptCompile Include="Lib\m-Tools\MathManager.ts" />
-    <TypeScriptCompile Include="Lib\m-Tools\ObjectManager.ts" />
-    <TypeScriptCompile Include="Lib\m-Tools\ToolManager.ts" />
+    <TypeScriptCompile Include="Lib\m-Tools\m-Tools.ts" />
   </ItemGroup>
   <ItemGroup>
     <Service Include="{4A0DDDB5-7A95-4FBF-97CC-616D07737A77}" />
