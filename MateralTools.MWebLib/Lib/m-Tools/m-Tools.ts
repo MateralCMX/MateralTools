@@ -327,16 +327,18 @@ namespace MateralTools {
          * @param type 事件类型
          * @param fun 执行方法
          */
-        public static AddEvent(element: string | HTMLElement | Window, type: string, fun: Function): void {
+        public static AddEvent(element: string | HTMLElement | Window | Element, type: string, fun: Function): void {
             let typeName = ToolManager.GetType(element);
             if (ToolManager.GetType(element) === "string" || ToolManager.GetType(element) === "HTMLElement") {
                 element = this.$(element as string | HTMLElement);
             }
-            if (!ToolManager.IsNullOrUndefined(element["addEventListener"])) {
-                element["addEventListener"](type, fun);
-            }
-            else {
-                element["attachEvent"]("on" + type, fun);
+            if (!ToolManager.IsNullOrUndefined(element)) {
+                if (!ToolManager.IsNullOrUndefined(element["addEventListener"])) {
+                    element["addEventListener"](type, fun);
+                }
+                else {
+                    element["attachEvent"]("on" + type, fun);
+                }
             }
         }
         /**
