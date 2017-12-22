@@ -87,6 +87,7 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
+    <TypeScriptCompile Include="Index.ts" />
     <TypeScriptCompile Include="Lib\m-Reset\m-Reset.ts" />
     <TypeScriptCompile Include="Lib\m-Tools\m-Tools.ts" />
   </ItemGroup>

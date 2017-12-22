@@ -34,7 +34,10 @@
       <HintPath>..\packages\Newtonsoft.Json.10.0.3\lib\net45\Newtonsoft.Json.dll</HintPath>
     </Reference>
     <Reference Include="System" />
+    <Reference Include="System.Configuration" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Web" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -44,9 +47,17 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Manager\WeChatManager.cs" />
+    <Compile Include="Manager\WeChatWorkManager.cs" />
     <Compile Include="Model\WeChatMenuModel.cs" />
     <Compile Include="Model\WeChatTokenModel.cs" />
+    <Compile Include="Model\WeChatWork\WeChatWorkAccessTokenModel.cs" />
+    <Compile Include="Model\WeChatWork\WeChatWorkJsapiTicketModel.cs" />
+    <Compile Include="Model\WeChatWork\WeChatWorkJSSDKConfigModel.cs" />
+    <Compile Include="Model\WeChatWork\WeChatWorkUserInfoModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Tencent\Cryptography.cs" />
+    <Compile Include="Tencent\Sample.cs" />
+    <Compile Include="Tencent\WXBizMsgCrypt.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\MateralTools.MCache\MateralTools.MCache.csproj">
@@ -65,9 +76,16 @@
       <Project>{0F3E3189-5442-4B98-A718-4C1F350E1E32}</Project>
       <Name>MateralTools.MHttpWeb</Name>
     </ProjectReference>
+    <ProjectReference Include="..\MateralTools.MImage\MateralTools.MImage.csproj">
+      <Project>{4850e1c0-5a3a-4020-b8b9-ab1eaa4a6e4e}</Project>
+      <Name>MateralTools.MImage</Name>
+    </ProjectReference>
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Tencent\Readme.txt" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
